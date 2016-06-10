@@ -92,26 +92,12 @@
 </header>
     <div class="article-content">
         
-        <p>因为在网上无意中看见别人的博客，感觉十分高大上，所以自己就在网上进行了大型的搜索，博客的搭建网上有很多可以建立独立博客的文章，经过我的深思熟虑后决定应用github+hexo来进行;</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="安装必要软件"><a href="#安装必要软件" class="headerlink" title="安装必要软件"></a>安装必要软件</h3><ul>
-<li>git的安装</li>
-<li>node.js的安装(直接上网下载最新版并进行安装)</li>
-</ul>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><h4 id="在任意位置点击鼠标右键，选择Git-Base-Here"><a href="#在任意位置点击鼠标右键，选择Git-Base-Here" class="headerlink" title="在任意位置点击鼠标右键，选择Git Base Here"></a>在任意位置点击鼠标右键，选择Git Base Here</h4><h4 id="输入安装Hexo的命令"><a href="#输入安装Hexo的命令" class="headerlink" title="输入安装Hexo的命令"></a>输入安装Hexo的命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
-<h4 id="安装完成后，在你喜爱的文件夹下（如E-Hexo），执行以下指令-在E-Hexo内点击鼠标右键，选择Git-Bash-，Hexo-即会自动在目标文件夹建立网站所需要的所有文件。"><a href="#安装完成后，在你喜爱的文件夹下（如E-Hexo），执行以下指令-在E-Hexo内点击鼠标右键，选择Git-Bash-，Hexo-即会自动在目标文件夹建立网站所需要的所有文件。" class="headerlink" title="安装完成后，在你喜爱的文件夹下（如E:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。"></a>安装完成后，在你喜爱的文件夹下（如E:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<h4 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<h4 id="看看发生了什么："><a href="#看看发生了什么：" class="headerlink" title="看看发生了什么："></a>看看发生了什么：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<h4 id="然后用浏览器访问http-localhost-4000，-此时，你应该看到了一个漂亮的博客了。"><a href="#然后用浏览器访问http-localhost-4000，-此时，你应该看到了一个漂亮的博客了。" class="headerlink" title="然后用浏览器访问http://localhost:4000， 此时，你应该看到了一个漂亮的博客了。"></a>然后用浏览器访问<a href="http://localhost:4000，" target="_blank" rel="external">http://localhost:4000，</a> 此时，你应该看到了一个漂亮的博客了。</h4><h3 id="注册github账号"><a href="#注册github账号" class="headerlink" title="注册github账号"></a>注册github账号</h3><h4 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h4><p>*repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入Github，并进入个人页面，选择repositories，然后New一个repository。repository name 命名规则为 moxiaohei.github.io,直接点击Creat repository。</p>
-<h4 id="部署本地文件到github"><a href="#部署本地文件到github" class="headerlink" title="部署本地文件到github"></a>部署本地文件到github</h4><p>*既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的).</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    <span class="built_in">type</span>: git</span><br><span class="line">    repository: https://github.com/moxiaohei/moxiaohei.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
-<h4 id="以上就表示SSH配置好了，执行以下命令部署到Github上。"><a href="#以上就表示SSH配置好了，执行以下命令部署到Github上。" class="headerlink" title="以上就表示SSH配置好了，执行以下命令部署到Github上。"></a>以上就表示SSH配置好了，执行以下命令部署到Github上。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<h4 id="如果执行hexo-d命令下报错：ERROR-Deployer-not-found-git-就先安装hexo-deployer-git这个模块"><a href="#如果执行hexo-d命令下报错：ERROR-Deployer-not-found-git-就先安装hexo-deployer-git这个模块" class="headerlink" title="如果执行hexo d命令下报错：ERROR Deployer not found: git,就先安装hexo-deployer-git这个模块"></a>如果执行hexo d命令下报错：ERROR Deployer not found: git,就先安装hexo-deployer-git这个模块</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h4 id="安装好了继续执行hexo-d部署命令，输入gitHub的账号密码，就可以访问了。"><a href="#安装好了继续执行hexo-d部署命令，输入gitHub的账号密码，就可以访问了。" class="headerlink" title="安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。"></a>安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。</h4><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a href="http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/#发表一篇文章" target="_blank" rel="external">hexo+github搭建个人独立博客</a><br> <a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">使用hex搭建个人博客</a><br> <a href="http://www.mashiro.io/2015/09/hexo-guide-3/" target="_blank" rel="external">基于Github Page的Hexo搭建</a></p>
-<p>##总结<br>经过这次的洗礼，瞬间感觉自己整个人都升华了，当然，这里面的坑也特别多，我在这里也只是抛砖引玉的谈了一下，望有不足之处请海涵，大家一起加油吧！Fighting~</p>
-
+        <p>因为在网上无意中看见别人的博客，感觉十分高大上，所以自己就在网上进行了大型的搜索，博客的搭建网上有很多可以建立独立博客的文章，经过我的深思熟虑后决定应用github+hexo来进行;<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/2016/06/10/基于hexo-github的独立博客搭建/#more">Read More</a>
           
        </p>
     </div>
