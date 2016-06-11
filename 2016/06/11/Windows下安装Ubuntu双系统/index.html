@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | 墨小飞独立博客</title>
+    <title>Windows下安装Ubuntu双系统 | 墨小飞独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiaofei Mo">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://moxiaohei.github.io/2016/06/10/hello-world/index.html">
+<meta property="og:title" content="Windows下安装Ubuntu双系统">
+<meta property="og:url" content="http://moxiaohei.github.io/2016/06/11/Windows下安装Ubuntu双系统/index.html">
 <meta property="og:site_name" content="墨小飞独立博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-06-10T06:58:19.026Z">
+<meta property="og:description" content="一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！">
+<meta property="og:updated_time" content="2016-06-11T05:02:31.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Windows下安装Ubuntu双系统">
+<meta name="twitter:description" content="一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！">
 
     
     
@@ -80,14 +77,14 @@ Quick">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/06/11/Windows下安装Ubuntu双系统/" title="Windows下安装Ubuntu双系统" itemprop="url">Windows下安装Ubuntu双系统</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiaofei Mo" target="_blank" itemprop="author">Xiaofei Mo</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-10T06:58:19.026Z" itemprop="datePublished"> 发表于 2016-06-10</time>
+    <time datetime="2016-06-11T03:03:32.000Z" itemprop="datePublished"> 发表于 2016-06-11</time>
     
   </p>
 </header>
@@ -96,19 +93,40 @@ Quick">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！<br><a id="more"></a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ol>
+<li>需要准备一个启动U盘(大于2G)</li>
+<li>在Ubuntu官网下载自己系统所匹配的安装文件<br><a href="http://www.ubuntu.com/download" target="_blank" rel="external">Ubuntu 官网</a></li>
+<li>下载并安装UltraISO(制作系统启动盘所需)<br><a href="http://cn.ultraiso.net/" target="_blank" rel="external">UltraISO 下载</a></li>
+<li>确定打算安装Ubuntu的电脑(我的电脑已安装好Win764位)</li>
+</ol>
+<h3 id="使用UltraISO制作系统启动盘"><a href="#使用UltraISO制作系统启动盘" class="headerlink" title="使用UltraISO制作系统启动盘"></a>使用UltraISO制作系统启动盘</h3><ol>
+<li>运行UltraISO软件，在本地目录中查找到自己下载好的Ubuntu镜像文件。</li>
+<li>在UltraISO软件上方点击“启动-写入硬盘映像”。</li>
+<li>(此时U盘已经默认被选择在硬盘驱动器上)弹出的窗口上，”勾选”刻录校验;写入方式选择:USB-ZIP+;便捷启动:写入新的硬盘主引导记录(MBR)-USB-ZIP+;设置完毕后，单击写入。</li>
+<li>单击写入之后，会出现提示，直接选择”是”就可以。之后就等待写入镜像吧，完成之后会有汉字提示的！</li>
+</ol>
+<h3 id="Ubuntu系统安装及配置"><a href="#Ubuntu系统安装及配置" class="headerlink" title="Ubuntu系统安装及配置"></a>Ubuntu系统安装及配置</h3><ol>
+<li>在桌面上用鼠标右键点击:我的电脑-管理-磁盘管理；选择空间大的盘符进行压缩，一般练习用的话压缩30000(30G)的空间就可以，压缩完成后即可，不用设置盘符。</li>
+<li>将启动U盘插在电脑上，重新启动计算机，开机时按相应的快捷键进入BIOS页面(不同的电脑型号有不同的按键，具体自行进行百度)，在Boot页面LEGACY BOOT下将U盘设置为开机启动项(使用+、-可以更改启动的顺序)，按键F10保存并退出。</li>
+<li>在选择了U盘启动后，进入Ubuntu的安装页面，在左侧选择简体中文(有其他爱好的可以选择其他语言)，点击安装Ubuntu。</li>
+<li>出现准备安装Ubuntu，不要勾选”安装下更新”,这个需要下载，很慢的；看自己喜好可以勾选”安装这个第三方软件”。</li>
+<li>(至关重要的一步！！！)很多人在这吃过大亏，最惨的就是换电脑了，还有的抹盘就是选择了第一个；切记选择”其他选项”。点击继续</li>
+<li>在打开的磁盘管理中我们可以看到之前划分好的”空闲”空间，大约和我们划分的差不多，30G左右；在这个空闲空间上给Ubuntu进行划分分区，选中空闲之后，点击+进行新建分区,更改新建分区容量(所分配的内存空间大小)和挂载点(就是后面提到的”/“,”/boot”等)，我是这么划分的：引导分区 “/boot”12000M(12G),系统分区 “/“ 15000M(15G),交换分区(需要在”用于”下拉菜单中选择”交换分区”)”swap”类似于Windows的虚拟内存，一般不大于物理内存就行，个人文件分区”/home”，类似于Windows的”我的文档”,自己根据自己的需求设置。重要的一点是在安装启动引导设备选择前面划分的/boot盘，点击现在安装。</li>
+<li>会出现”您在什么地方”，选择你喜欢的就行，键盘布局选择汉语就OK。进入用户设置，自己设置用户名及密码；进入安装页面，等待更新安装。</li>
+<li>安装完成后重新启动计算机，在window系统下进行引导。</li>
+</ol>
+<p>###用EasyBCD修改系统启动项</p>
+<ol>
+<li>安装EasyBCD后点击”Add New Entry”-选择Linux/BSD,Type选择GRUB,Name自己随便写,笔者写的是Ubuntu作为标识,Drive:选取我们设置的/boot分区,有Linux标记,设置完成后点击“Add Entry”。</li>
+<li>现在你可以重新启动电脑，会发现有Win7和Ubuntu两个启动下可以选择，这下就大功告成了！！！</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://bbs.51cto.com/thread-966627-1.html" target="_blank" rel="external">win7与Ubuntu双系统安装过程</a><br><a href="http://jingyan.baidu.com/article/76a7e409bea83efc3b6e1507.html" target="_blank" rel="external">win7下U盘安装Ubuntu双系统</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>安装完双系统之后的心情是久久不能平静，瞬间感觉逼格高了很多，别傻了，这只是一个开始，会安装并不代表会用，如果你只是为了好看，我劝你还是别装了，这个很容易导致之前的Windows崩溃或者资源丢失。以后不想继续使用Ubuntu系统可以直接在Win7里面将Ubuntu的分区格式化,而不会影响Win7操作系统,这也是与从Ubuntu启动最大的好处。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -121,7 +139,7 @@ Quick">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://moxiaohei.github.io/2016/06/10/hello-world/" data-title="Hello World | 墨小飞独立博客" data-tsina="1178485171" class="share clearfix">
+	  <div data-url="http://moxiaohei.github.io/2016/06/11/Windows下安装Ubuntu双系统/" data-title="Windows下安装Ubuntu双系统 | 墨小飞独立博客" data-tsina="1178485171" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -134,20 +152,20 @@ Quick">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/10/my-new-post/" title="我的博客">
-  <strong>上一篇：</strong><br/>
-  <span>
-  我的博客</span>
+
+<div class="next">
+<a href="/2016/06/10/基于hexo-github的独立博客搭建/"  title="基于hexo+github的独立博客搭建">
+ <strong>下一篇：</strong><br/> 
+ <span>基于hexo+github的独立博客搭建
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/06/10/hello-world/" data-title="Hello World" data-url="http://moxiaohei.github.io/2016/06/10/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/11/Windows下安装Ubuntu双系统/" data-title="Windows下安装Ubuntu双系统" data-url="http://moxiaohei.github.io/2016/06/11/Windows下安装Ubuntu双系统/"></div>
 </section>
 
 
@@ -157,7 +175,7 @@ Quick">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
