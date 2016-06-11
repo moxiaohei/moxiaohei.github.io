@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://moxiaohei.github.io/2016/06/11/Windows下安装Ubuntu双系统/index.html">
 <meta property="og:site_name" content="墨小飞独立博客">
 <meta property="og:description" content="一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！">
-<meta property="og:updated_time" content="2016-06-11T05:02:31.041Z">
+<meta property="og:updated_time" content="2016-06-11T05:11:02.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下安装Ubuntu双系统">
 <meta name="twitter:description" content="一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！">
@@ -93,7 +93,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用EasyBCD修改系统启动项"><span class="toc-number">1.4.</span> <span class="toc-text">用EasyBCD修改系统启动项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -120,8 +120,7 @@
 <li>会出现”您在什么地方”，选择你喜欢的就行，键盘布局选择汉语就OK。进入用户设置，自己设置用户名及密码；进入安装页面，等待更新安装。</li>
 <li>安装完成后重新启动计算机，在window系统下进行引导。</li>
 </ol>
-<p>###用EasyBCD修改系统启动项</p>
-<ol>
+<h3 id="用EasyBCD修改系统启动项"><a href="#用EasyBCD修改系统启动项" class="headerlink" title="用EasyBCD修改系统启动项"></a>用EasyBCD修改系统启动项</h3><ol>
 <li>安装EasyBCD后点击”Add New Entry”-选择Linux/BSD,Type选择GRUB,Name自己随便写,笔者写的是Ubuntu作为标识,Drive:选取我们设置的/boot分区,有Linux标记,设置完成后点击“Add Entry”。</li>
 <li>现在你可以重新启动电脑，会发现有Win7和Ubuntu两个启动下可以选择，这下就大功告成了！！！</li>
 </ol>
@@ -175,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用UltraISO制作系统启动盘"><span class="toc-number">1.2.</span> <span class="toc-text">使用UltraISO制作系统启动盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu系统安装及配置"><span class="toc-number">1.3.</span> <span class="toc-text">Ubuntu系统安装及配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用EasyBCD修改系统启动项"><span class="toc-number">1.4.</span> <span class="toc-text">用EasyBCD修改系统启动项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
