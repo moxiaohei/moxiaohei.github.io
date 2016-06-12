@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>墨小飞独立博客</title>
+  <subtitle>滴水穿石，非一日之功</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://moxiaohei.github.io/"/>
+  <updated>2016-06-11T05:11:02.638Z</updated>
+  <id>http://moxiaohei.github.io/</id>
+  
+  <author>
+    <name>Xiaofei Mo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows下安装Ubuntu双系统</title>
+    <link href="http://moxiaohei.github.io/2016/06/11/Windows%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://moxiaohei.github.io/2016/06/11/Windows下安装Ubuntu双系统/</id>
+    <published>2016-06-11T03:03:32.000Z</published>
+    <updated>2016-06-11T05:11:02.638Z</updated>
+    
+    <content type="html">&lt;p&gt;一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;h3 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;需要准备一个启动U盘(大于2G)&lt;/li&gt;
+&lt;li&gt;在Ubuntu官网下载自己系统所匹配的安装文件&lt;br&gt;&lt;a href=&quot;http://www.ubuntu.com/download&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ubuntu 官网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载并安装UltraISO(制作系统启动盘所需)&lt;br&gt;&lt;a href=&quot;http://cn.ultraiso.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UltraISO 下载&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;确定打算安装Ubuntu的电脑(我的电脑已安装好Win764位)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;使用UltraISO制作系统启动盘&quot;&gt;&lt;a href=&quot;#使用UltraISO制作系统启动盘&quot; class=&quot;headerlink&quot; title=&quot;使用UltraISO制作系统启动盘&quot;&gt;&lt;/a&gt;使用UltraISO制作系统启动盘&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;运行UltraISO软件，在本地目录中查找到自己下载好的Ubuntu镜像文件。&lt;/li&gt;
+&lt;li&gt;在UltraISO软件上方点击“启动-写入硬盘映像”。&lt;/li&gt;
+&lt;li&gt;(此时U盘已经默认被选择在硬盘驱动器上)弹出的窗口上，”勾选”刻录校验;写入方式选择:USB-ZIP+;便捷启动:写入新的硬盘主引导记录(MBR)-USB-ZIP+;设置完毕后，单击写入。&lt;/li&gt;
+&lt;li&gt;单击写入之后，会出现提示，直接选择”是”就可以。之后就等待写入镜像吧，完成之后会有汉字提示的！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Ubuntu系统安装及配置&quot;&gt;&lt;a href=&quot;#Ubuntu系统安装及配置&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu系统安装及配置&quot;&gt;&lt;/a&gt;Ubuntu系统安装及配置&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在桌面上用鼠标右键点击:我的电脑-管理-磁盘管理；选择空间大的盘符进行压缩，一般练习用的话压缩30000(30G)的空间就可以，压缩完成后即可，不用设置盘符。&lt;/li&gt;
+&lt;li&gt;将启动U盘插在电脑上，重新启动计算机，开机时按相应的快捷键进入BIOS页面(不同的电脑型号有不同的按键，具体自行进行百度)，在Boot页面LEGACY BOOT下将U盘设置为开机启动项(使用+、-可以更改启动的顺序)，按键F10保存并退出。&lt;/li&gt;
+&lt;li&gt;在选择了U盘启动后，进入Ubuntu的安装页面，在左侧选择简体中文(有其他爱好的可以选择其他语言)，点击安装Ubuntu。&lt;/li&gt;
+&lt;li&gt;出现准备安装Ubuntu，不要勾选”安装下更新”,这个需要下载，很慢的；看自己喜好可以勾选”安装这个第三方软件”。&lt;/li&gt;
+&lt;li&gt;(至关重要的一步！！！)很多人在这吃过大亏，最惨的就是换电脑了，还有的抹盘就是选择了第一个；切记选择”其他选项”。点击继续&lt;/li&gt;
+&lt;li&gt;在打开的磁盘管理中我们可以看到之前划分好的”空闲”空间，大约和我们划分的差不多，30G左右；在这个空闲空间上给Ubuntu进行划分分区，选中空闲之后，点击+进行新建分区,更改新建分区容量(所分配的内存空间大小)和挂载点(就是后面提到的”/“,”/boot”等)，我是这么划分的：引导分区 “/boot”12000M(12G),系统分区 “/“ 15000M(15G),交换分区(需要在”用于”下拉菜单中选择”交换分区”)”swap”类似于Windows的虚拟内存，一般不大于物理内存就行，个人文件分区”/home”，类似于Windows的”我的文档”,自己根据自己的需求设置。重要的一点是在安装启动引导设备选择前面划分的/boot盘，点击现在安装。&lt;/li&gt;
+&lt;li&gt;会出现”您在什么地方”，选择你喜欢的就行，键盘布局选择汉语就OK。进入用户设置，自己设置用户名及密码；进入安装页面，等待更新安装。&lt;/li&gt;
+&lt;li&gt;安装完成后重新启动计算机，在window系统下进行引导。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;用EasyBCD修改系统启动项&quot;&gt;&lt;a href=&quot;#用EasyBCD修改系统启动项&quot; class=&quot;headerlink&quot; title=&quot;用EasyBCD修改系统启动项&quot;&gt;&lt;/a&gt;用EasyBCD修改系统启动项&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装EasyBCD后点击”Add New Entry”-选择Linux/BSD,Type选择GRUB,Name自己随便写,笔者写的是Ubuntu作为标识,Drive:选取我们设置的/boot分区,有Linux标记,设置完成后点击“Add Entry”。&lt;/li&gt;
+&lt;li&gt;现在你可以重新启动电脑，会发现有Win7和Ubuntu两个启动下可以选择，这下就大功告成了！！！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://bbs.51cto.com/thread-966627-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;win7与Ubuntu双系统安装过程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/76a7e409bea83efc3b6e1507.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;win7下U盘安装Ubuntu双系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;安装完双系统之后的心情是久久不能平静，瞬间感觉逼格高了很多，别傻了，这只是一个开始，会安装并不代表会用，如果你只是为了好看，我劝你还是别装了，这个很容易导致之前的Windows崩溃或者资源丢失。以后不想继续使用Ubuntu系统可以直接在Win7里面将Ubuntu的分区格式化,而不会影响Win7操作系统,这也是与从Ubuntu启动最大的好处。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一次偶然的机会，我了解到了一个硬盘上还可以装两个系统，这使我对此产生了浓厚的兴趣，于是便自己在网上各种搜索相关的资料，自己动手在自己的windows7(64位)下装了VM虚拟机，通过在windows系统上启动VM软件来启动优麒麟。。。关键是也没怎么用，看到别人是直接在真机上运行Linux系统，我也就在好奇心的驱使下进行了我的好奇之旅！&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于hexo+github的独立博客搭建</title>
+    <link href="http://moxiaohei.github.io/2016/06/10/%E5%9F%BA%E4%BA%8Ehexo-github%E7%9A%84%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>http://moxiaohei.github.io/2016/06/10/基于hexo-github的独立博客搭建/</id>
+    <published>2016-06-10T15:49:39.000Z</published>
+    <updated>2016-06-11T02:17:11.893Z</updated>
+    
+    <content type="html">&lt;p&gt;因为在网上无意中看见别人的博客，感觉十分高大上，所以自己就在网上进行了大型的搜索，博客的搭建网上有很多可以建立独立博客的文章，经过我的深思熟虑后决定应用github+hexo来进行;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;h3 id=&quot;安装必要软件&quot;&gt;&lt;a href=&quot;#安装必要软件&quot; class=&quot;headerlink&quot; title=&quot;安装必要软件&quot;&gt;&lt;/a&gt;安装必要软件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;git的安装&lt;/li&gt;
+&lt;li&gt;node.js的安装(直接上网下载最新版并进行安装)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h3&gt;&lt;p&gt;在任意位置点击鼠标右键，选择Git Base Here&lt;/p&gt;
+&lt;p&gt;输入安装Hexo的命令&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装完成后，在你喜爱的文件夹下（如E:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装依赖包&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;看看发生了什么：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后用浏览器访问&lt;a href=&quot;http://localhost:4000，&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000，&lt;/a&gt; 此时，你应该看到了一个漂亮的博客了。&lt;/p&gt;
+&lt;h3 id=&quot;注册github账号&quot;&gt;&lt;a href=&quot;#注册github账号&quot; class=&quot;headerlink&quot; title=&quot;注册github账号&quot;&gt;&lt;/a&gt;注册github账号&lt;/h3&gt;&lt;h4 id=&quot;创建repository&quot;&gt;&lt;a href=&quot;#创建repository&quot; class=&quot;headerlink&quot; title=&quot;创建repository&quot;&gt;&lt;/a&gt;创建repository&lt;/h4&gt;&lt;p&gt;repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入Github，并进入个人页面，选择repositories，然后New一个repository。repository name 命名规则为 moxiaohei.github.io,直接点击Creat repository。&lt;/p&gt;
+&lt;h4 id=&quot;部署本地文件到github&quot;&gt;&lt;a href=&quot;#部署本地文件到github&quot; class=&quot;headerlink&quot; title=&quot;部署本地文件到github&quot;&gt;&lt;/a&gt;部署本地文件到github&lt;/h4&gt;&lt;p&gt;既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的).&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repository: https://github.com/moxiaohei/moxiaohei.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以上就表示SSH配置好了，执行以下命令部署到Github上。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果执行hexo d命令下报错：ERROR Deployer not found: git,就先安装hexo-deployer-git这个模块&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-deployer-git --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。我的是&lt;a href=&quot;moxiaohei.github.io&quot;&gt;moxiaohei.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt; &lt;a href=&quot;http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/#发表一篇文章&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo+github搭建个人独立博客&lt;/a&gt;&lt;br&gt; &lt;a href=&quot;http://opiece.me/2015/04/09/hexo-guide/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用hex搭建个人博客&lt;/a&gt;&lt;br&gt; &lt;a href=&quot;http://www.mashiro.io/2015/09/hexo-guide-3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;基于Github Page的Hexo搭建&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;经过这次的洗礼，瞬间感觉自己整个人都升华了，当然，这里面的坑也特别多，我在这里也只是抛砖引玉的谈了一下，望有不足之处请海涵，大家一起加油吧！Fighting~&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为在网上无意中看见别人的博客，感觉十分高大上，所以自己就在网上进行了大型的搜索，博客的搭建网上有很多可以建立独立博客的文章，经过我的深思熟虑后决定应用github+hexo来进行;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
