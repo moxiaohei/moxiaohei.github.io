@@ -278,7 +278,8 @@ $(document).ready(function(){
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+	m.addClass('moveMain');
   });
   o.click(function(){
     o.css('display', 'none').removeClass('beforeFadeIn');
@@ -288,6 +289,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 
