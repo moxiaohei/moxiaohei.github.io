@@ -1,0 +1,524 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>MATLAB实现图像的特殊效果显示 | 墨小飞独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiaofei Mo">
+    
+
+    
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB实现图像的特殊效果显示">
+<meta property="og:url" content="http://moxiaohei.github.io/2016/11/30/MATLAB实现图像的特殊效果显示/index.html">
+<meta property="og:site_name" content="墨小飞独立博客">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+<meta property="og:updated_time" content="2016-11-30T12:24:17.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MATLAB实现图像的特殊效果显示">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+
+    
+    <link rel="alternative" href="/atom.xml" title="墨小飞独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="墨小飞独立博客" title="墨小飞独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="墨小飞独立博客">墨小飞独立博客</a></h1>
+				<h2 class="blog-motto">滴水穿石，非一日之功</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 16217304412639600000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/30/MATLAB实现图像的特殊效果显示/" title="MATLAB实现图像的特殊效果显示" itemprop="url">MATLAB实现图像的特殊效果显示</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiaofei Mo" target="_blank" itemprop="author">Xiaofei Mo</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-30T09:02:12.000Z" itemprop="datePublished"> 发表于 2016-11-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入"><span class="toc-number">1.1.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像处理之浮雕效果的实现"><span class="toc-number">1.3.</span> <span class="toc-text">图像处理之浮雕效果的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<p>&nbsp;&nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！<br><a id="more"></a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>&nbsp;&nbsp;一个好的实习应该是什么样的呢？(偷偷告诉你们，我们所实习的内容为MATLAB+C语言实现对图片或者视频的处理。)<br>用我总结的话来说就是以下三点：<br>1.百度+谷歌<br>2.快速学习<br>3.只要学不死，就往死里学<br>下面开始正式的作死之旅······</p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>one、你需要安装的软件为：<br>&nbsp;&nbsp;&nbsp;1：<a href="http://pan.baidu.com/s/1eRGZkbw" target="_blank" rel="external">MATLAB软件</a><br>&nbsp;&nbsp;&nbsp;2：<a href="http://pan.baidu.com/s/1hsOCPU0" target="_blank" rel="external">VC</a><br>&nbsp;&nbsp;&nbsp;3：<a href="http://www.easyx.cn/downloads/" target="_blank" rel="external">easyX</a><br>&nbsp;&nbsp;&nbsp;4：<a href="http://pan.baidu.com/s/1o7KMAVK" target="_blank" rel="external">DEVC++</a><br>&nbsp;&nbsp;&nbsp;5：[VS]<br>&nbsp;&nbsp;&nbsp;6：[openCV]就这些软件的安装就足以让我们为之倾倒。。。<br>two、告诉了这么多的软件干什么(我的电脑渣啊，运行不了这么多的软件啊,啊！我的小心脏啊)?简单说下吧，这些软件你都有可能用的上,MATLAB是矩阵实验室,用过的人都说好,很强大的一款综合处理软件所有的数学逻辑问题几乎遇到它都可迎刃而解；VC(Microsoft Visual Studio)是基础的一款用来运行C,C++语言的一个编辑器，界面简单灵巧，新手很适合上手,DEVC++界面更加友好,相比VC来说有很多的优点可说,适合有一定编程语言的人来使用,基本功能只能说和VC大同小异吧；easyXEasyX是针对C、C++的图形库,可以帮助C语言初学者快速上手图形和游戏编程,这下就知道这个东西的含义了吧;VS(Microsoft Visual Studio)是一款很强的软件(苦笑),直接上概念吧：VS是美国微软公司的开发工具包系列产品。VS是一个基本完整的开发工具集，它包括了整个软件生命周期中所需要的大部分工具，如UML工具、代码管控工具、集成开发环境(IDE)等等。所写的目标代码适用于微软支持的所有平台，包括Microsoft Windows、Windows Mobile、Windows CE、.NET Framework、.NET Compact Framework和Microsoft Silverlight 及Windows Phone；基于这么强大的软件又有一个opencv(Open Source Computer Vision Library)OpenCV是一个基于BSD许可(开源)发行的跨平台计算机视觉库,可以运行在Linux、Windows、Android和Mac OS操作系统上。它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了图像处理和计算机视觉方面的很多通用算法。[终于解释完了，累死宝宝了]<br>three、然后就是软件的安装了,你肯定又会问你都给了软件难道还有人不会安装吗？(笑着哭)我很认真的告诉你,真的有人不会。详情请戳以下链接:<br>      1.VC配置easyX<br>      2.VS配置openCv</p>
+<h3 id="图像处理之浮雕效果的实现"><a href="#图像处理之浮雕效果的实现" class="headerlink" title="图像处理之浮雕效果的实现"></a>图像处理之浮雕效果的实现</h3><p>1、MATLAB对数字图像的处理及浮雕效果的显示(以下代码亲测有效,小编用的是MATLABR2012b)<br>浮雕原理：实现图像浮雕效果的一般原理是，将图像上每个像素点与其对角线的像素点形成差值，使相似颜色值淡化，不同颜色值突出，从而产生纵深感，达到浮雕的效果，具体的做法是取主对角线除右下角外的各点之和的平均值，减去右下角点的值，再加上填充背景色，再加上一个背景常数，一般为128而成，会形成类似浮雕的效果<br>%算法1 直接对角线上左上减去右下加上一个常数<br>% y(i,j) = img(x-1,y-1)-img(x+1,y+1)+128<br>temp_img=imread(‘lena.jpg’); %需要改到你的本机的相应图片的路径下<br>size_info=size(temp_img);<br>height=size_info(1);<br>width=size_info(2);<br>spec_img=zeros(height,width,3);   </p>
+<p>for i=2:height-1<br>    for j=2:width-1<br>        spec_img(i,j,:)=double(temp_img(i-1,j-1,:))-double(temp_img(i+1,j+1,:))+128;<br>    end<br>end<br>figure,imshow(temp_img);<br>figure,imshow(spec_img/255);</p>
+<p>%算法2 取主对角线除右下角外的各点之和的平均值，减去右下角点的值，再加上填充背景色，<br>%再加上一个背景常数，会形成类似浮雕的效果。<br>%算法 y(i,j)= 0.25<em>img(x-2,y-2)+0.25</em>img(x-1,y-1)+0.25<em>img(x,y)+0.25</em>img(x+1,y+1)+0.25*img(x+2,y+1)+128;<br>A = imread(‘E:\MatlabProject\Project\1.jpg’);%需要改到你的本机的相应图片的路径下<br>size_info=size(A);<br>height=size_info(1);<br>width=size_info(2);<br>B=zeros(height,width,3);<br>% img_temp=rgb2gray(temp_img);</p>
+<p>for i=2:height-1<br>    for j=2:width-1<br>        if A(i,j,:) == 255<br>            A(i,j,:) = 255;<br>        else<br>            B(i,j,:)=double(A(i-1,j-1,:))-double(A(i+1,j+1,:))+128;<br>        end</p>
+<pre><code>end
+</code></pre><p>end<br>figure,imshow(A);<br>figure,imshow(B/255);</p>
+<p>2、C语言实现对数字图像的处理及浮雕效果的显示<br>(DEVC++亲测有效)</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt; </p>
+<p>#include &lt;windows.h&gt; </p>
+<p>#include &lt;time.h&gt;<br>typedef unsigned short WORD;<br>typedef unsigned long    DWORD;<br>typedef unsigned char       BYTE;  </p>
+<p>BITMAPFILEHEADER fileheader;<br>unsigned char<em> pBmpBuf; //读入图像数据的指针<br>int bmpWidth; //图像的宽度<br>int bmpHeight;  //图像的高度<br>RGBQUAD</em> pColorTable;<br>BITMAPINFOHEADER infoHead;<br>int all_M;<br>int biBitCount;   //图像类型，像素位数<br>int line_width;<br>//BMP bmp_info;<br>unsigned char <em>tempbuffer;<br>int readbmp(char </em>bmp)<br>{  </p>
+<pre><code>FILE* fp = fopen(bmp,&quot;rb&quot;);   
+if(fp == 0)  
+{    
+ printf(&quot;文件打开失败&quot;);  
+    return 0;  
+}  
+</code></pre><p>fread(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,fp);<br>  fread(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,fp);<br>    bmpWidth = infoHead.biWidth;<br>    bmpHeight = infoHead.biHeight;<br>    biBitCount = infoHead.biBitCount;  </p>
+<pre><code>printf(&quot;%d %d %d\n&quot;,bmpWidth,bmpHeight,biBitCount);  
+
+int lineByte=(bmpWidth * biBitCount/8 + 3)/4 * 4;  
+line_width=lineByte;  
+
+if(biBitCount == 8)  
+{   
+    pColorTable = new RGBQUAD[256];  
+    fread(pColorTable,sizeof(RGBQUAD),256,fp);  
+}  
+
+int m=lineByte*bmpHeight;  
+all_M=m;  
+pBmpBuf = new unsigned char[m];  
+if(fread(pBmpBuf,1,m,fp)==0)  
+{  
+
+printf(&quot;error&quot;);  
+    return 0;  
+}  
+fclose(fp);  
+return 1;  
+</code></pre><p>}<br>int save_bmp_file(char <em>name){<br>    FILE </em>new_file=fopen(name,”wt+”);//可读可写<br>    if(new_file==NULL){<br>        printf(“文件打开失败\n”);<br>        return -1;<br>    }  </p>
+<pre><code>fwrite(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,new_file);  
+fwrite(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,new_file);  
+fwrite(tempbuffer,1,all_M,new_file);  
+if(new_file!=NULL)  
+    fclose(new_file);  
+</code></pre><p>  return 0;<br>}<br>void handle_bmp(){<br>    //彩色浮雕效果   f(i,j)-f(i-1,j)+常量，常量一般为128<br>    tempbuffer=new unsigned char[all_M];<br>    int temp;<br>    for(int j=0;j<bmpheight;j++){ for(int="" i="0;i<line_width-4;i++){" temp="0;" if(temp<0)="" if(temp="">255)<br>                temp=255;<br>            <em>(tempbuffer+(bmpHeight-j-1)</em>line_width+i+3)=temp;<br>        }<br>    }<br>}<br>int main(){</bmpheight;j++){></p>
+<pre><code>char *filename=&quot;D:\\lena.bmp&quot;;  
+readbmp(filename);  
+char *savefilename=&quot;D:\\lena123.bmp&quot;;  
+handle_bmp();  
+save_bmp_file(savefilename);  
+return 0;
+</code></pre><p>}<br>(VC配置easyX亲测有效)</p>
+<p>#include &lt;graphics.h&gt; </p>
+<p>#include &lt;windows.h&gt;</p>
+<p>#include &lt;conio.h&gt;</p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#define GRP(x, y) GetRValue(getpixel(x, y)) </p>
+<p>#define GGP(x, y) GetGValue(getpixel(x, y)) </p>
+<p>#define GBP(x, y) GetBValue(getpixel(x, y)) </p>
+<p>#define WIDTH 200           //屏幕宽 </p>
+<p>#define HEIGHT 200          //屏幕高 </p>
+<p>int main(void)<br>{ </p>
+<p>void CopyLayer();    //图层复制 </p>
+<p>void CarveLR();    //雕刻：自左向右，需要复制图层</p>
+<p>initgraph(WIDTH, HEIGHT);    //初始化600×600的绘图窗口<br>setbkcolor(WHITE);    //设置背景色<br>cleardevice();    //清空屏幕 </p>
+<p>loadimage(NULL, “D:\lena.jpg”);<br>    CopyLayer();<br>    CarveLR();<br>getch();<br>closegraph(); </p>
+<p>return 0;<br>} </p>
+<p>//雕刻，自左向右，本点 = 本点 - 右点 +127<br>void CarveLR()<br>{<br>int r, g, b;<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ ){<br>r = GRP(x, y) - GRP(x + 1, y) + 127;<br>g = GGP(x, y) - GGP(x + 1, y) + 127;<br>b = GBP(x, y) - GBP(x + 1, y) + 127;    //127为调整后的亮度，可调<br>putpixel(x, y, RGB(r, g, b));<br>}<br>} </p>
+<p>//图层复制<br>void CopyLayer()<br>{<br>Resize(NULL, WIDTH + WIDTH, HEIGHT);<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ ){<br>putpixel(x + WIDTH, y, getpixel(x, y));<br>    }<br>} </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/mkhgg/article/details/6585402" target="_blank" rel="external">图像处理小结</a><br><a href="http://blog.csdn.net/worldy/article/details/12868547" target="_blank" rel="external">图像处理</a><br><a href="http://blog.csdn.net/jsgaobiao/article/details/50913065" target="_blank" rel="external">浮雕效果和倒影效果</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>未完，待续…….</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://moxiaohei.github.io/2016/11/30/MATLAB实现图像的特殊效果显示/" data-title="MATLAB实现图像的特殊效果显示 | 墨小飞独立博客" data-tsina="1178485171" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/06/11/Windows下安装Ubuntu双系统/"  title="Windows下安装Ubuntu双系统">
+ <strong>下一篇：</strong><br/> 
+ <span>Windows下安装Ubuntu双系统
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/11/30/MATLAB实现图像的特殊效果显示/" data-title="MATLAB实现图像的特殊效果显示" data-url="http://moxiaohei.github.io/2016/11/30/MATLAB实现图像的特殊效果显示/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入"><span class="toc-number">1.1.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前期准备"><span class="toc-number">1.2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像处理之浮雕效果的实现"><span class="toc-number">1.3.</span> <span class="toc-text">图像处理之浮雕效果的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://farenoughstone.github.io/" target="_blank" title="足够远的石头">足够远的石头</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1178485171&verifier=039d33aa&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I am moxiaofei! <br/>
+			Live forever,Learn forever.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1178485171" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/moxiaohei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/墨小飞00" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:1178485171@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Xiaofei Mo">Xiaofei Mo</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+	m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"moxiaofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
