@@ -1,0 +1,493 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>数据库书籍的增删改查 | 墨小飞独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiaofei Mo">
+    
+
+    
+    <meta name="description" content="在学习了jsp&amp;amp;servlet之后，便开始着手做了这个简单的实战项目，实现了对数据库中的书籍的增删改查等操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库书籍的增删改查">
+<meta property="og:url" content="http://moxiaohei.github.io/2017/04/08/书籍管理系统/index.html">
+<meta property="og:site_name" content="墨小飞独立博客">
+<meta property="og:description" content="在学习了jsp&amp;amp;servlet之后，便开始着手做了这个简单的实战项目，实现了对数据库中的书籍的增删改查等操作。">
+<meta property="og:updated_time" content="2017-04-08T02:16:42.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库书籍的增删改查">
+<meta name="twitter:description" content="在学习了jsp&amp;amp;servlet之后，便开始着手做了这个简单的实战项目，实现了对数据库中的书籍的增删改查等操作。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="墨小飞独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="墨小飞独立博客" title="墨小飞独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="墨小飞独立博客">墨小飞独立博客</a></h1>
+				<h2 class="blog-motto">滴水穿石，非一日之功</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 16217304412639600000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/08/书籍管理系统/" title="数据库书籍的增删改查" itemprop="url">数据库书籍的增删改查</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiaofei Mo" target="_blank" itemprop="author">Xiaofei Mo</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-08T02:00:12.000Z" itemprop="datePublished"> 发表于 2017-04-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目描述"><span class="toc-number">1.0.1.</span> <span class="toc-text">项目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目代码"><span class="toc-number">1.0.2.</span> <span class="toc-text">项目代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number">2.</span> <span class="toc-text">总结：</span></a></li></ol>
+		
+		</div>
+		
+		<p>在学习了jsp&amp;servlet之后，便开始着手做了这个简单的实战项目，实现了对数据库中的书籍的增删改查等操作。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h4 id="项目描述"><a href="#项目描述" class="headerlink" title="项目描述"></a>项目描述</h4><pre><code>实现对数据库中的书籍进行增、删、改、查操作。其中涉及到MVC，jsp,servlet等。
+</code></pre><h4 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h4><hr>
+<p><strong>项目是在web下开发，所使用的IDE为eclipse，Tomcat和jdk版本均为8.0</strong></p>
+<pre><code>1.由于要连接数据库，所以新建工具类包即基本数据库连接类，切记导入数据库驱动连接包并放置在工程目录WebContent/WEB-INF/lib下。
+  温馨提示:类编写完成后可以进行本地数据库连接测试，确保数据库连接成功。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.utils;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line"></span><br><span class="line">//数据库连接类</span><br><span class="line">public class BaseDao &#123;</span><br><span class="line">	//声明Connection连接类</span><br><span class="line">	private Connection conn;</span><br><span class="line">	//创建PreparedStatement对象，用来执行SQL语句</span><br><span class="line">	private PreparedStatement ps;</span><br><span class="line">	//用来存放数据的结果集</span><br><span class="line">	private ResultSet rs;</span><br><span class="line"></span><br><span class="line">	// 连接数据库</span><br><span class="line">	public void getConnection() &#123;</span><br><span class="line">		// 加载驱动程序</span><br><span class="line">		try &#123;</span><br><span class="line">			Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">			String url = &quot;jdbc:mysql://localhost:3306/booksys?characterEncoding=utf-8&quot;;</span><br><span class="line">			//通过getConnection方法连接数据库</span><br><span class="line">			conn = DriverManager.getConnection(url, &quot;root&quot;, &quot;&quot;);</span><br><span class="line">		&#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 关闭数据库  从后往前依次关闭</span><br><span class="line">	public void close() &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			if (ps != null) &#123;</span><br><span class="line">				ps.close();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		try &#123;</span><br><span class="line">			if (rs != null) &#123;</span><br><span class="line">				rs.close();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		try &#123;</span><br><span class="line">			if (conn != null) &#123;</span><br><span class="line">				conn.close();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现对数据的更新--增加，删除，修改操作；其中Object...为可变参数</span><br><span class="line">	public int executeUpdate(String sql, Object... objects) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			this.getConnection();</span><br><span class="line">			ps = conn.prepareStatement(sql);</span><br><span class="line">			if (objects != null) &#123;</span><br><span class="line">				for (int i = 0; i &lt; objects.length; i++) &#123;</span><br><span class="line">					ps.setObject(i + 1, objects[i]);</span><br><span class="line">				&#125;</span><br><span class="line">				return ps.executeUpdate();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			this.close();</span><br><span class="line">		&#125;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现对数据的查询操作</span><br><span class="line">	public ResultSet executeQuery(String sql, Object... objects) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			this.getConnection();</span><br><span class="line">			ps = conn.prepareStatement(sql);</span><br><span class="line">			if (objects != null) &#123;</span><br><span class="line">				for (int i = 0; i &lt; objects.length; i++) &#123;</span><br><span class="line">					ps.setObject(i + 1, objects[i]);</span><br><span class="line">				&#125;</span><br><span class="line">				return rs = ps.executeQuery();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>2.由于我们需要做的是对书籍的增删改查等操作，所以新建书籍实体类包里面包含数据实体类和书籍分类类；
+同时在mysql数据库中新建book(书籍信息)和category(书籍分类)表。
+注意：其中book表的id设置为自动递增
+</code></pre><hr>
+<p><strong>书籍类</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.entity;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">//书籍类</span><br><span class="line">public class Book &#123;</span><br><span class="line">        // 对所有的属性生成get和set方法</span><br><span class="line">	private int id;// 书籍编号</span><br><span class="line">	private String name;// 书籍名称</span><br><span class="line">	private double price;// 价格</span><br><span class="line">	private String author;// 作者</span><br><span class="line">	private Date pubDate;// 出版日期</span><br><span class="line">	private int categoryId;// 书籍分类</span><br><span class="line">        // 无参构造方法</span><br><span class="line">	public Book() &#123;</span><br><span class="line">	&#125;</span><br><span class="line">        // 不带id的有参构造方法</span><br><span class="line">	public Book(String name, double price, String author, Date pubDate, int categoryId) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.price = price;</span><br><span class="line">		this.author = author;</span><br><span class="line">		this.pubDate = pubDate;</span><br><span class="line">		this.categoryId = categoryId;</span><br><span class="line">	&#125;</span><br><span class="line">        // 带id的有参构造方法</span><br><span class="line">	public Book(int id, String name, double price, String author, Date pubDate, int categoryId) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.id = id;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.price = price;</span><br><span class="line">		this.author = author;</span><br><span class="line">		this.pubDate = pubDate;</span><br><span class="line">		this.categoryId = categoryId;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getId() &#123;</span><br><span class="line">		return id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setId(int id) &#123;</span><br><span class="line">		this.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public double getPrice() &#123;</span><br><span class="line">		return price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setPrice(double price) &#123;</span><br><span class="line">		this.price = price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getAuthor() &#123;</span><br><span class="line">		return author;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAuthor(String author) &#123;</span><br><span class="line">		this.author = author;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Date getPubDate() &#123;</span><br><span class="line">		return pubDate;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setPubDate(Date pubDate) &#123;</span><br><span class="line">		this.pubDate = pubDate;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getCategoryId() &#123;</span><br><span class="line">		return categoryId;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setCategoryId(int categoryId) &#123;</span><br><span class="line">		this.categoryId = categoryId;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>书籍分类类</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.entity;</span><br><span class="line"></span><br><span class="line">public class Category &#123;</span><br><span class="line">	// 书籍分类编号</span><br><span class="line">	private int id;</span><br><span class="line">	// 书籍对应分类名</span><br><span class="line">	private String name;</span><br><span class="line">	// 生成带参构造方法</span><br><span class="line">	public Category(int id, String name) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.id = id;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Category(String name) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	// 生成无参构造方法</span><br><span class="line">	public Category() &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	// 并对属性进行设置set和get方法</span><br><span class="line">	public int getId() &#123;</span><br><span class="line">		return id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setId(int id) &#123;</span><br><span class="line">		this.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>3.接着实现基于BaseDao的书籍数据库连接类和书籍分类数据库连接类。
+</code></pre><hr>
+<p><strong>书籍数据库连接类</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.dao;</span><br><span class="line"></span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import cn.mxf.entity.Book;</span><br><span class="line">import cn.mxf.utils.BaseDao;</span><br><span class="line">//本类为继承于BaseDao</span><br><span class="line">public class BookDao extends BaseDao &#123;</span><br><span class="line">	// 实现查询所有书籍的功能</span><br><span class="line">	public List&lt;Book&gt; getAll() &#123;</span><br><span class="line">		List&lt;Book&gt; list = new ArrayList&lt;Book&gt;();</span><br><span class="line">		// 查询的SQL语句</span><br><span class="line">		String sql = &quot;select * from book&quot;;</span><br><span class="line">		// 调用查询数据的方法对书籍进行查询操作</span><br><span class="line">		ResultSet rs = this.executeQuery(sql);</span><br><span class="line">		try &#123;</span><br><span class="line">			// 将查询的结果存放于List&lt;Book&gt;中</span><br><span class="line">			while (rs.next()) &#123;</span><br><span class="line">				list.add(new Book(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getDate(5),</span><br><span class="line">						rs.getInt(6)));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			// 最后别忘记关闭</span><br><span class="line">			this.close();</span><br><span class="line">		&#125;</span><br><span class="line">		return list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现增加书籍的功能</span><br><span class="line">	public int addBook(Book book) &#123;</span><br><span class="line">		String sql = &quot;insert into book(name,price,author,pubDate,categoryId) values(?,?,?,?,?)&quot;;</span><br><span class="line">		return this.executeUpdate(sql, book.getName(), book.getPrice(), book.getAuthor(),</span><br><span class="line">				new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(book.getPubDate()), book.getCategoryId());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现通过ID找到对应书籍的功能--在此之后才能进行修改操作</span><br><span class="line">	public Book selectBookById(int id) &#123;</span><br><span class="line">		// 通过id值查询对应书籍的SQL语句</span><br><span class="line">		String sql = &quot;select * from book where id=&quot; + id;</span><br><span class="line">		// 执行查询操作</span><br><span class="line">		ResultSet rs = this.executeQuery(sql);</span><br><span class="line">		try &#123;</span><br><span class="line">			if (rs.next()) &#123;</span><br><span class="line">				return new Book(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getDate(5),</span><br><span class="line">						rs.getInt(6));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			// 最后别忘记关闭</span><br><span class="line">			this.close();</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现修改书籍的功能--在此之前需要找到要修改的书籍信息</span><br><span class="line">	public int modifyBook(Book book) &#123;</span><br><span class="line">		// 更新书籍信息的SQL语句</span><br><span class="line">		String sql = &quot;update book set name=?,price=?,author=?,pubDate=?,categoryId=? where id=?&quot;;</span><br><span class="line">		return this.executeUpdate(sql, book.getName(), book.getPrice(), book.getAuthor(),</span><br><span class="line">				new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(book.getPubDate()), book.getCategoryId(), book.getId());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 实现删除书籍的功能--直接通过id找到对应书籍然后删除</span><br><span class="line">	public int deleteBook(int id) &#123;</span><br><span class="line">		// 删除书籍的SQL语句</span><br><span class="line">		String sql = &quot;delete from book where id=?&quot;;</span><br><span class="line">		return this.executeUpdate(sql, id);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>书籍分类数据库连接类</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.dao;</span><br><span class="line"></span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import cn.mxf.entity.Category;</span><br><span class="line">import cn.mxf.utils.BaseDao;</span><br><span class="line">//本类为继承于BaseDao</span><br><span class="line">public class CategoryDao extends BaseDao &#123;</span><br><span class="line">	// 实现查询所有书籍分类的功能</span><br><span class="line">	public List&lt;Category&gt; getAll() &#123;</span><br><span class="line">		List&lt;Category&gt; list = new ArrayList&lt;Category&gt;();</span><br><span class="line">		// 查询所有分类的SQL语句</span><br><span class="line">		String sql = &quot;select * from category&quot;;</span><br><span class="line">		// 根据SQL语句执行查询操作</span><br><span class="line">		ResultSet rs = this.executeQuery(sql);</span><br><span class="line">		try &#123;</span><br><span class="line">			while (rs.next()) &#123;</span><br><span class="line">				// 将查询的结果存放于List&lt;Category&gt;中</span><br><span class="line">				list.add(new Category(rs.getInt(1), rs.getString(2)));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			// 最后别忘记关闭连接</span><br><span class="line">			this.close();</span><br><span class="line">		&#125;</span><br><span class="line">		return list.size() &gt; 0 ? list : null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>4.准备工作完成后，现在才是真正的开始:新建BookServlet类(所有的操作在这里完成)，在其中完成对书籍的增删改查操作。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">package cn.mxf.servlet;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.text.ParseException;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">import cn.mxf.dao.BookDao;</span><br><span class="line">import cn.mxf.dao.CategoryDao;</span><br><span class="line">import cn.mxf.entity.Book;</span><br><span class="line">import cn.mxf.entity.Category;</span><br><span class="line"></span><br><span class="line">// 通过注解的方式配置Servlet</span><br><span class="line">@WebServlet(&quot;/book&quot;)</span><br><span class="line">public class BookServlet extends HttpServlet &#123;</span><br><span class="line">	private static final long serialVersionUID = 1L;</span><br><span class="line">	// 获取BookDao对象</span><br><span class="line">	private BookDao bookDao = new BookDao();</span><br><span class="line">	// 获取CategoryDao对象</span><br><span class="line">	private CategoryDao categoryDao = new CategoryDao();</span><br><span class="line"></span><br><span class="line">	public BookServlet() &#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	protected void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		// 解决乱码</span><br><span class="line">		request.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">		response.setContentType(&quot;text/html;charset=utf-8&quot;);</span><br><span class="line">		/**</span><br><span class="line">		 * 获取操作的参数，确定好下一步该做什么 </span><br><span class="line">		 * op = list :查询所有的书籍信息 </span><br><span class="line">		 * op = toAdd :跳转到添加书籍的页面 </span><br><span class="line">		 * op = add :添加书籍 </span><br><span class="line">		 * op = delete :删除书籍 </span><br><span class="line">		 * op = getById :根据id值找到需要更改的书籍信息 </span><br><span class="line">		 * op = modify :修改书籍信息</span><br><span class="line">		 */</span><br><span class="line">		// 根据传入的op判断执行那一个操作</span><br><span class="line">		String op = request.getParameter(&quot;op&quot;);</span><br><span class="line">		if (op == null || &quot;list&quot;.equals(op)) &#123;</span><br><span class="line">			// 封装为方法</span><br><span class="line">			list(request, response);</span><br><span class="line">		&#125; else if (&quot;toadd&quot;.equals(op)) &#123;</span><br><span class="line">			toadd(request, response);</span><br><span class="line">		&#125; else if (&quot;add&quot;.equals(op)) &#123;</span><br><span class="line">			add(request, response);</span><br><span class="line">		&#125; else if (&quot;getById&quot;.equals(op)) &#123;</span><br><span class="line">			getById(request, response);</span><br><span class="line">		&#125; else if (&quot;modify&quot;.equals(op)) &#123;</span><br><span class="line">			modify(request, response);</span><br><span class="line">		&#125; else if (&quot;delete&quot;.equals(op)) &#123;</span><br><span class="line">			delete(request, response);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	private void list(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">	throws ServletException, IOException &#123;</span><br><span class="line">		// 获取所有书籍</span><br><span class="line">		List&lt;Book&gt; list = bookDao.getAll();</span><br><span class="line">		// 获取所有书籍分类</span><br><span class="line">		List&lt;Category&gt; clist = categoryDao.getAll();</span><br><span class="line">		// 用来在同一个request周期中保存list变量使用</span><br><span class="line">		request.setAttribute(&quot;list&quot;, list);</span><br><span class="line">		// 用来在同一个request周期中保存clist变量使用</span><br><span class="line">		request.setAttribute(&quot;clist&quot;, clist);</span><br><span class="line">		// response.sendRedirect()方法是通过浏览器对象重定向的，在两个不同的页面间传值会生成两个不同的request对象。</span><br><span class="line">		// 由于是在不同页面间传值，所以有使用RequestDispatcher接口的forward()方法。</span><br><span class="line">		request.getRequestDispatcher(&quot;list.jsp&quot;).forward(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	protected void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>5.在WebContent目录下新建list.jsp用来获取书籍列表并进行显示。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- </span><br><span class="line">	显示数据库中所有书籍的JSP页面 ,其中涉及到了JSTL,EL表达式;</span><br><span class="line">	所以需要自己导入jstl.jar和standard.jar包到WebContent/WEB-INF/lib下;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!-- eclipse下使用JSTL需要导入java.sun.com/jsp/jstl/core，才能使用JSTL表达式 --&gt;</span><br><span class="line">&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;书籍信息页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;书籍信息列表&lt;/h1&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;table width=&quot;80%&quot; align=&quot;center&quot;&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;编号&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;名称&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;分类&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;价格&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;作者&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;出版日期&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">		&lt;!-- 通过EL表达式获取传递过来的list,并且通过JSTL中的循环获取对应的属性值 --&gt;</span><br><span class="line">		&lt;c:forEach items=&quot;$&#123;list &#125;&quot; var=&quot;bean&quot; varStatus=&quot;status&quot;&gt;</span><br><span class="line">			&lt;!-- </span><br><span class="line">				1.隔行变色</span><br><span class="line">				2.分别取得对应的书籍属性值并且显示出来</span><br><span class="line">				3.当书籍中的分类编号和分类表中的编号相同时，显示分类表中的分类名</span><br><span class="line">			--&gt;</span><br><span class="line">			&lt;tr &lt;c:if test=&quot;$&#123;status.index%2==0 &#125;&quot;&gt;style=&quot;background:#0f0&quot;&lt;/c:if&gt;&gt;</span><br><span class="line">				&lt;td&gt;$&#123;bean.id &#125;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;$&#123;bean.name &#125;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;c:forEach items=&quot;$&#123;clist &#125;&quot; var=&quot;category&quot;&gt;</span><br><span class="line">						&lt;c:if test=&quot;$&#123;category.id == bean.categoryId &#125;&quot;&gt;</span><br><span class="line">					$&#123;category.name &#125;</span><br><span class="line">				&lt;/c:if&gt;</span><br><span class="line">					&lt;/c:forEach&gt;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;$&#123;bean.price &#125;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;$&#123;bean.author &#125;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;$&#123;bean.pubDate &#125;&lt;/td&gt;</span><br><span class="line">				&lt;!-- </span><br><span class="line">					1.这里以浏览器的URL方式直接将书籍的对应id传递过去,可以对书籍进行查询操作和删除操作</span><br><span class="line">				 --&gt;</span><br><span class="line">				&lt;td&gt;&lt;a href=&quot;book?op=getById&amp;id=$&#123;bean.id &#125;&quot;&gt;修改&lt;/a&gt; &lt;a</span><br><span class="line">					href=&quot;book?op=delete&amp;id=$&#123;bean.id &#125;&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/c:forEach&gt;</span><br><span class="line">	&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><em>到这里的话你就可以执行你的代码来查询所有书籍了</em></p>
+<pre><code>6.然后就是给数据库中进行添加书籍的操作了。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">   private void add(HttpServletRequest request, HttpServletResponse response) throws IOException &#123;</span><br><span class="line">	String bookName = request.getParameter(&quot;name&quot;);// 书名</span><br><span class="line">	double price = Double.parseDouble(request.getParameter(&quot;price&quot;));// 价格</span><br><span class="line">	String author = request.getParameter(&quot;author&quot;);// 作者</span><br><span class="line">	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span><br><span class="line">	Date pubDate = null;// 出版日期</span><br><span class="line">	try &#123;</span><br><span class="line">		pubDate = sdf.parse(request.getParameter(&quot;pubDate&quot;));</span><br><span class="line">	&#125; catch (ParseException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	int categoryId = Integer.parseInt(request.getParameter(&quot;categoryId&quot;));// 书籍分类</span><br><span class="line">	// 根据获取到的书籍属性新创建一个书籍对象并调用BookDao中的addBook方法进行书籍的添加</span><br><span class="line">	Book b = new Book(bookName, price, author, pubDate, categoryId);</span><br><span class="line">	if (bookDao.addBook(b) &gt; 0) &#123;</span><br><span class="line">		response.sendRedirect(&quot;book?op=list&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		response.getWriter().print(&quot;添加失败!!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void toadd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">	// 获取所有的书籍分类名称</span><br><span class="line">	List&lt;Category&gt; clist = categoryDao.getAll();</span><br><span class="line">	request.setAttribute(&quot;clist&quot;, clist);</span><br><span class="line">	request.getRequestDispatcher(&quot;add.jsp&quot;).forward(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>7.在WebContent目录下新建add.jsp用来获取书籍列表并进行显示。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;添加书籍&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;添加书籍&lt;/h1&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;!-- 这里需要注意:提交的时候需要交给当op=add时BookServlet中的add方法执行 --&gt;</span><br><span class="line">	&lt;form action=&quot;book?op=add&quot; method=&quot;post&quot;&gt;</span><br><span class="line">		&lt;table width=&quot;60%&quot; align=&quot;center&quot;&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;书名:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;分类:&lt;/td&gt;</span><br><span class="line">				&lt;!-- 添加书籍的时候需要将书籍分类通过下拉框的形式显示出来 --&gt;</span><br><span class="line">				&lt;td&gt;&lt;select name=&quot;categoryId&quot;&gt;</span><br><span class="line">						&lt;c:forEach items=&quot;$&#123;clist &#125;&quot; var=&quot;bean&quot;&gt;</span><br><span class="line">							&lt;option value=&quot;$&#123;bean.id &#125;&quot;&gt;$&#123;bean.name &#125;&lt;/option&gt;</span><br><span class="line">						&lt;/c:forEach&gt;</span><br><span class="line">				&lt;/select&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;价格:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;price&quot;&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;作者:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;author&quot;&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;出版日期:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;pubDate&quot;&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><em>到这里的话你就可以执行你的代码来查询所有书籍和添加书籍了</em></p>
+<pre><code>8.接着就是修改获取到的书籍信息的操作了。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">private void modify(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException &#123;</span><br><span class="line">	// 获取id</span><br><span class="line">	int id = 0;</span><br><span class="line">	if (request.getParameter(&quot;id&quot;) != null) &#123;</span><br><span class="line">		id = Integer.parseInt(request.getParameter(&quot;id&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	String name = request.getParameter(&quot;name&quot;);// 书名</span><br><span class="line">	double price = Double.parseDouble(request.getParameter(&quot;price&quot;));// 价格</span><br><span class="line">	String author = request.getParameter(&quot;author&quot;);// 作者</span><br><span class="line">	Date pubDate = null;// 出版日期</span><br><span class="line">	try &#123;</span><br><span class="line">		pubDate = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).parse(request.getParameter(&quot;pubDate&quot;));</span><br><span class="line">	&#125; catch (ParseException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	int categoryId = Integer.parseInt(request.getParameter(&quot;categoryId&quot;));// 书籍分类</span><br><span class="line">	// 根据获取到的书籍属性新创建一个书籍对象并调用BookDao中的modifyBook方法进行书籍的更新</span><br><span class="line">	Book b = new Book(id, name, price, author, pubDate, categoryId);</span><br><span class="line">	if (bookDao.modifyBook(b) &gt; 0) &#123;</span><br><span class="line">		response.sendRedirect(&quot;book?op=list&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		response.getWriter().print(&quot;修改失败!!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void getById(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">		throws ServletException, IOException &#123;</span><br><span class="line">	// 获取id</span><br><span class="line">	int id = 0;</span><br><span class="line">	if (request.getParameter(&quot;id&quot;) != null) &#123;</span><br><span class="line">		id = Integer.parseInt(request.getParameter(&quot;id&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	// 根据id查询对应记录</span><br><span class="line">	Book book = bookDao.selectBookById(id);</span><br><span class="line">	List&lt;Category&gt; clist = categoryDao.getAll();</span><br><span class="line">	request.setAttribute(&quot;clist&quot;, clist);</span><br><span class="line">	request.setAttribute(&quot;book&quot;, book);</span><br><span class="line">	request.getRequestDispatcher(&quot;modify.jsp&quot;).forward(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>9.在WebContent目录下新建modify.jsp用来更新书籍并进行显示。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;修改书籍&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;修改书籍&lt;/h1&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;form action=&quot;book?op=modify&quot; method=&quot;post&quot;&gt;</span><br><span class="line">		&lt;table width=&quot;60%&quot; align=&quot;center&quot;&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;!-- 这里需要将id传递过去 --&gt;</span><br><span class="line">				&lt;td&gt;书名: &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;$&#123;book.id &#125;&quot; /&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;$&#123;book.name&#125;&quot; /&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;分类:&lt;/td&gt;</span><br><span class="line">				&lt;!-- 修改书籍的时候需要将书籍分类通过下拉框的形式显示出来 --&gt;</span><br><span class="line">				&lt;td&gt;&lt;select name=&quot;categoryId&quot;&gt;</span><br><span class="line">						&lt;c:forEach items=&quot;$&#123;clist &#125;&quot; var=&quot;bean&quot;&gt;</span><br><span class="line">							&lt;option value=&quot;$&#123;bean.id &#125;&quot;</span><br><span class="line">								&lt;c:if test=&quot;$&#123;bean.id == book.categoryId &#125;&quot;&gt;selected&lt;/c:if&gt;&gt;$&#123;bean.name &#125;&lt;/option&gt;</span><br><span class="line">						&lt;/c:forEach&gt;</span><br><span class="line">				&lt;/select&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;价格:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;price&quot; value=&quot;$&#123;book.price&#125;&quot; /&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;作者:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;author&quot; value=&quot;$&#123;book.author&#125;&quot; /&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;出版日期:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;pubDate&quot; value=&quot;$&#123;book.pubDate&#125;&quot; /&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">				&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><em>到这里的话你就可以执行你的代码来查询所有书籍、添加书籍和修改书籍了</em></p>
+<pre><code>10.剩下的就只有删除了,其实删除是这里面最简单的了，只需要获取到id值之后就可以进行删除操作。
+</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException &#123;</span><br><span class="line">	// 获取id</span><br><span class="line">	int id = 0;</span><br><span class="line">	if (request.getParameter(&quot;id&quot;) != null) &#123;</span><br><span class="line">		id = Integer.parseInt(request.getParameter(&quot;id&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	// 根据获取到的书籍id调用BookDao中的deleteBook(id)方法进行书籍的删除</span><br><span class="line">	if (bookDao.deleteBook(id) &gt; 0) &#123;</span><br><span class="line">		response.sendRedirect(&quot;book?op=list&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li>通过这几天的学习也对之前的JDBC进行了复习与回顾；</li>
+<li>新使用的MVC(Model View Control)模式使得界面与逻辑处理分离开来，很大程度上使得我们的修改变得简单；</li>
+<li>通过EL、JSTL表达式的方式大大简化了编程代码的冗余。</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://moxiaohei.github.io/2017/04/08/书籍管理系统/" data-title="数据库书籍的增删改查 | 墨小飞独立博客" data-tsina="1178485171" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/11/30/MATLAB实现图像的特殊效果显示/"  title="MATLAB实现图像的特殊效果显示">
+ <strong>下一篇：</strong><br/> 
+ <span>MATLAB实现图像的特殊效果显示
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/08/书籍管理系统/" data-title="数据库书籍的增删改查" data-url="http://moxiaohei.github.io/2017/04/08/书籍管理系统/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目描述"><span class="toc-number">1.0.1.</span> <span class="toc-text">项目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目代码"><span class="toc-number">1.0.2.</span> <span class="toc-text">项目代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number">2.</span> <span class="toc-text">总结：</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://farenoughstone.github.io/" target="_blank" title="足够远的石头">足够远的石头</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1178485171&verifier=039d33aa&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I am moxiaofei! <br/>
+			Live forever,Learn forever.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1178485171" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/moxiaohei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/墨小飞00" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:1178485171@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiaofei Mo">Xiaofei Mo</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+	m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"moxiaofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+    <meta name="description" content="对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MATLAB实现图像的特殊效果显示">
 <meta property="og:url" content="http://moxiaohei.github.io/2016/11/30/MATLAB实现图像的特殊效果显示/index.html">
 <meta property="og:site_name" content="墨小飞独立博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
-<meta property="og:updated_time" content="2016-11-30T12:24:17.770Z">
+<meta property="og:description" content="对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+<meta property="og:updated_time" content="2016-11-30T14:37:29.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MATLAB实现图像的特殊效果显示">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
+<meta name="twitter:description" content="对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！">
 
     
     <link rel="alternative" href="/atom.xml" title="墨小飞独立博客" type="application/atom+xml">
@@ -101,64 +101,22 @@
 		
 		</div>
 		
-		<p>&nbsp;&nbsp;对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！<br><a id="more"></a></p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>&nbsp;&nbsp;一个好的实习应该是什么样的呢？(偷偷告诉你们，我们所实习的内容为MATLAB+C语言实现对图片或者视频的处理。)<br>用我总结的话来说就是以下三点：<br>1.百度+谷歌<br>2.快速学习<br>3.只要学不死，就往死里学<br>下面开始正式的作死之旅······</p>
-<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>one、你需要安装的软件为：<br>&nbsp;&nbsp;&nbsp;1：<a href="http://pan.baidu.com/s/1eRGZkbw" target="_blank" rel="external">MATLAB软件</a><br>&nbsp;&nbsp;&nbsp;2：<a href="http://pan.baidu.com/s/1hsOCPU0" target="_blank" rel="external">VC</a><br>&nbsp;&nbsp;&nbsp;3：<a href="http://www.easyx.cn/downloads/" target="_blank" rel="external">easyX</a><br>&nbsp;&nbsp;&nbsp;4：<a href="http://pan.baidu.com/s/1o7KMAVK" target="_blank" rel="external">DEVC++</a><br>&nbsp;&nbsp;&nbsp;5：[VS]<br>&nbsp;&nbsp;&nbsp;6：[openCV]就这些软件的安装就足以让我们为之倾倒。。。<br>two、告诉了这么多的软件干什么(我的电脑渣啊，运行不了这么多的软件啊,啊！我的小心脏啊)?简单说下吧，这些软件你都有可能用的上,MATLAB是矩阵实验室,用过的人都说好,很强大的一款综合处理软件所有的数学逻辑问题几乎遇到它都可迎刃而解；VC(Microsoft Visual Studio)是基础的一款用来运行C,C++语言的一个编辑器，界面简单灵巧，新手很适合上手,DEVC++界面更加友好,相比VC来说有很多的优点可说,适合有一定编程语言的人来使用,基本功能只能说和VC大同小异吧；easyXEasyX是针对C、C++的图形库,可以帮助C语言初学者快速上手图形和游戏编程,这下就知道这个东西的含义了吧;VS(Microsoft Visual Studio)是一款很强的软件(苦笑),直接上概念吧：VS是美国微软公司的开发工具包系列产品。VS是一个基本完整的开发工具集，它包括了整个软件生命周期中所需要的大部分工具，如UML工具、代码管控工具、集成开发环境(IDE)等等。所写的目标代码适用于微软支持的所有平台，包括Microsoft Windows、Windows Mobile、Windows CE、.NET Framework、.NET Compact Framework和Microsoft Silverlight 及Windows Phone；基于这么强大的软件又有一个opencv(Open Source Computer Vision Library)OpenCV是一个基于BSD许可(开源)发行的跨平台计算机视觉库,可以运行在Linux、Windows、Android和Mac OS操作系统上。它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了图像处理和计算机视觉方面的很多通用算法。[终于解释完了，累死宝宝了]<br>three、然后就是软件的安装了,你肯定又会问你都给了软件难道还有人不会安装吗？(笑着哭)我很认真的告诉你,真的有人不会。详情请戳以下链接:<br>      1.VC配置easyX<br>      2.VS配置openCv</p>
+		<p>对，你没看错，我将要书写的是一次我的亲身经历——校内实习，我大学期间所不能忘怀的一次刻骨铭心的实习。究竟哪里值得难以忘怀呢？让我带你们来一探究竟吧2333！<br><a id="more"></a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>一个好的实习应该是什么样的呢？(偷偷告诉你们，我们所实习的内容为MATLAB+C语言实现对图片或者视频的处理。)<br>用我总结的话来说就是以下三点：<br>1.百度+谷歌<br>2.快速学习<br>3.只要学不死，就往死里学<br>下面开始正式的作死之旅······</p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>one、你需要安装的软件为：<br>&nbsp;&nbsp;&nbsp;1：<a href="http://pan.baidu.com/s/1eRGZkbw" target="_blank" rel="external">MATLAB软件</a><br>&nbsp;&nbsp;&nbsp;2：<a href="http://pan.baidu.com/s/1hsOCPU0" target="_blank" rel="external">VC</a><br>&nbsp;&nbsp;&nbsp;3：<a href="http://www.easyx.cn/downloads/" target="_blank" rel="external">easyX</a><br>&nbsp;&nbsp;&nbsp;4：<a href="http://pan.baidu.com/s/1o7KMAVK" target="_blank" rel="external">DEVC++</a><br>&nbsp;&nbsp;&nbsp;5：<a href="https://pan.baidu.com/share/link?shareid=1289449841&amp;uk=1998769784&amp;fid=1982020110" target="_blank" rel="external">VS</a><br>&nbsp;&nbsp;&nbsp;6：<a href="http://opencv.org/" target="_blank" rel="external">openCV</a><br>就这些软件的安装就足以让我们为之倾倒。。。</p>
+<p>two、告诉了这么多的软件干什么(我的电脑渣啊，运行不了这么多的软件啊,啊！我的小心脏啊)?<br>     简单说下吧，这些软件你都有可能用的上,MATLAB是矩阵实验室,用过的人都说好,很强大的一款综合处理软件所有的数学逻辑问题几乎遇到它都可迎刃而解；<br>     VC(Microsoft Visual Studio)是基础的一款用来运行C,C++语言的一个编辑器，界面简单灵巧，新手很适合上手,DEVC++界面更加友好,相比VC来说有很多的优点可说,适合有一定编程语言的人来使用,基本功能只能说和VC大同小异吧；<br>     easyXEasyX是针对C、C++的图形库,可以帮助C语言初学者快速上手图形和游戏编程,这下就知道这个东西的含义了吧;<br>     VS(Microsoft Visual Studio)是一款很强的软件(苦笑),直接上概念吧：VS是美国微软公司的开发工具包系列产品。VS是一个基本完整的开发工具集，它包括了整个软件生命周期中所需要的大部分工具，如UML工具、代码管控工具、集成开发环境(IDE)等等。所写的目标代码适用于微软支持的所有平台，包括Microsoft Windows、Windows Mobile、Windows CE、.NET Framework、.NET Compact Framework和Microsoft Silverlight 及Windows Phone；<br>     基于这么强大的软件又有一个opencv(Open Source Computer Vision Library)OpenCV是一个基于BSD许可(开源)发行的跨平台计算机视觉库,可以运行在Linux、Windows、Android和Mac OS操作系统上。它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了图像处理和计算机视觉方面的很多通用算法。<br>     [终于解释完了，累死宝宝了]</p>
+<p>three、然后就是软件的安装了,你肯定又会问你都给了软件难道还有人不会安装吗？(笑着哭)我很认真的告诉你,真的有人不会。详情请戳以下链接:<br>      1.VC配置easyX<br>      2.VS配置openCv</p>
 <h3 id="图像处理之浮雕效果的实现"><a href="#图像处理之浮雕效果的实现" class="headerlink" title="图像处理之浮雕效果的实现"></a>图像处理之浮雕效果的实现</h3><p>1、MATLAB对数字图像的处理及浮雕效果的显示(以下代码亲测有效,小编用的是MATLABR2012b)<br>浮雕原理：实现图像浮雕效果的一般原理是，将图像上每个像素点与其对角线的像素点形成差值，使相似颜色值淡化，不同颜色值突出，从而产生纵深感，达到浮雕的效果，具体的做法是取主对角线除右下角外的各点之和的平均值，减去右下角点的值，再加上填充背景色，再加上一个背景常数，一般为128而成，会形成类似浮雕的效果<br>%算法1 直接对角线上左上减去右下加上一个常数<br>% y(i,j) = img(x-1,y-1)-img(x+1,y+1)+128<br>temp_img=imread(‘lena.jpg’); %需要改到你的本机的相应图片的路径下<br>size_info=size(temp_img);<br>height=size_info(1);<br>width=size_info(2);<br>spec_img=zeros(height,width,3);   </p>
 <p>for i=2:height-1<br>    for j=2:width-1<br>        spec_img(i,j,:)=double(temp_img(i-1,j-1,:))-double(temp_img(i+1,j+1,:))+128;<br>    end<br>end<br>figure,imshow(temp_img);<br>figure,imshow(spec_img/255);</p>
-<p>%算法2 取主对角线除右下角外的各点之和的平均值，减去右下角点的值，再加上填充背景色，<br>%再加上一个背景常数，会形成类似浮雕的效果。<br>%算法 y(i,j)= 0.25<em>img(x-2,y-2)+0.25</em>img(x-1,y-1)+0.25<em>img(x,y)+0.25</em>img(x+1,y+1)+0.25*img(x+2,y+1)+128;<br>A = imread(‘E:\MatlabProject\Project\1.jpg’);%需要改到你的本机的相应图片的路径下<br>size_info=size(A);<br>height=size_info(1);<br>width=size_info(2);<br>B=zeros(height,width,3);<br>% img_temp=rgb2gray(temp_img);</p>
-<p>for i=2:height-1<br>    for j=2:width-1<br>        if A(i,j,:) == 255<br>            A(i,j,:) = 255;<br>        else<br>            B(i,j,:)=double(A(i-1,j-1,:))-double(A(i+1,j+1,:))+128;<br>        end</p>
-<pre><code>end
-</code></pre><p>end<br>figure,imshow(A);<br>figure,imshow(B/255);</p>
+<p>%算法2 取主对角线除右下角外的各点之和的平均值，减去右下角点的值，再加上填充背景色，<br>%再加上一个背景常数，会形成类似浮雕的效果。<br>%算法 y(i,j)= 0.25<em>img(x-2,y-2)+0.25</em>img(x-1,y-1)+0.25<em>img(x,y)+0.25</em>img(x+1,y+1)+0.25*img(x+2,y+1)+128;</p>
+<p>A = imread(‘E:\MatlabProject\Project\1.jpg’);%需要改到你的本机的相应图片的路径下<br>size_info=size(A);<br>height=size_info(1);<br>width=size_info(2);<br>B=zeros(height,width,3);<br>% img_temp=rgb2gray(temp_img);</p>
+<p>for i=2:height-1<br>    for j=2:width-1<br>        if A(i,j,:) == 255<br>            A(i,j,:) = 255;<br>        else<br>            B(i,j,:)=double(A(i-1,j-1,:))-double(A(i+1,j+1,:))+128;<br>        end<br>    end<br>end<br>figure,imshow(A);<br>figure,imshow(B/255);</p>
 <p>2、C语言实现对数字图像的处理及浮雕效果的显示<br>(DEVC++亲测有效)</p>
 <p>#include &lt;stdio.h&gt;</p>
 <p>#include &lt;stdlib.h&gt; </p>
 <p>#include &lt;windows.h&gt; </p>
 <p>#include &lt;time.h&gt;<br>typedef unsigned short WORD;<br>typedef unsigned long    DWORD;<br>typedef unsigned char       BYTE;  </p>
-<p>BITMAPFILEHEADER fileheader;<br>unsigned char<em> pBmpBuf; //读入图像数据的指针<br>int bmpWidth; //图像的宽度<br>int bmpHeight;  //图像的高度<br>RGBQUAD</em> pColorTable;<br>BITMAPINFOHEADER infoHead;<br>int all_M;<br>int biBitCount;   //图像类型，像素位数<br>int line_width;<br>//BMP bmp_info;<br>unsigned char <em>tempbuffer;<br>int readbmp(char </em>bmp)<br>{  </p>
-<pre><code>FILE* fp = fopen(bmp,&quot;rb&quot;);   
-if(fp == 0)  
-{    
- printf(&quot;文件打开失败&quot;);  
-    return 0;  
-}  
-</code></pre><p>fread(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,fp);<br>  fread(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,fp);<br>    bmpWidth = infoHead.biWidth;<br>    bmpHeight = infoHead.biHeight;<br>    biBitCount = infoHead.biBitCount;  </p>
-<pre><code>printf(&quot;%d %d %d\n&quot;,bmpWidth,bmpHeight,biBitCount);  
-
-int lineByte=(bmpWidth * biBitCount/8 + 3)/4 * 4;  
-line_width=lineByte;  
-
-if(biBitCount == 8)  
-{   
-    pColorTable = new RGBQUAD[256];  
-    fread(pColorTable,sizeof(RGBQUAD),256,fp);  
-}  
-
-int m=lineByte*bmpHeight;  
-all_M=m;  
-pBmpBuf = new unsigned char[m];  
-if(fread(pBmpBuf,1,m,fp)==0)  
-{  
-
-printf(&quot;error&quot;);  
-    return 0;  
-}  
-fclose(fp);  
-return 1;  
-</code></pre><p>}<br>int save_bmp_file(char <em>name){<br>    FILE </em>new_file=fopen(name,”wt+”);//可读可写<br>    if(new_file==NULL){<br>        printf(“文件打开失败\n”);<br>        return -1;<br>    }  </p>
-<pre><code>fwrite(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,new_file);  
-fwrite(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,new_file);  
-fwrite(tempbuffer,1,all_M,new_file);  
-if(new_file!=NULL)  
-    fclose(new_file);  
-</code></pre><p>  return 0;<br>}<br>void handle_bmp(){<br>    //彩色浮雕效果   f(i,j)-f(i-1,j)+常量，常量一般为128<br>    tempbuffer=new unsigned char[all_M];<br>    int temp;<br>    for(int j=0;j<bmpheight;j++){ for(int="" i="0;i<line_width-4;i++){" temp="0;" if(temp<0)="" if(temp="">255)<br>                temp=255;<br>            <em>(tempbuffer+(bmpHeight-j-1)</em>line_width+i+3)=temp;<br>        }<br>    }<br>}<br>int main(){</bmpheight;j++){></p>
-<pre><code>char *filename=&quot;D:\\lena.bmp&quot;;  
-readbmp(filename);  
-char *savefilename=&quot;D:\\lena123.bmp&quot;;  
-handle_bmp();  
-save_bmp_file(savefilename);  
-return 0;
-</code></pre><p>}<br>(VC配置easyX亲测有效)</p>
+<p>BITMAPFILEHEADER fileheader;<br>unsigned char<em> pBmpBuf; //读入图像数据的指针<br>int bmpWidth; //图像的宽度<br>int bmpHeight;  //图像的高度<br>RGBQUAD</em> pColorTable;<br>BITMAPINFOHEADER infoHead;<br>int all_M;<br>int biBitCount;   //图像类型，像素位数<br>int line_width;<br>//BMP bmp_info;<br>unsigned char <em>tempbuffer;<br>int readbmp(char </em>bmp)<br>{<br>    FILE<em> fp = fopen(bmp,”rb”);<br>    if(fp == 0)<br>    {<br>     printf(“文件打开失败”);<br>        return 0;<br>    }<br>fread(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,fp);<br>  fread(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,fp);<br>    bmpWidth = infoHead.biWidth;<br>    bmpHeight = infoHead.biHeight;<br>    biBitCount = infoHead.biBitCount;<br>    printf(“%d %d %d\n”,bmpWidth,bmpHeight,biBitCount);<br>    int lineByte=(bmpWidth </em> biBitCount/8 + 3)/4 <em> 4;<br>    line_width=lineByte;<br>    if(biBitCount == 8)<br>    {<br>        pColorTable = new RGBQUAD[256];<br>        fread(pColorTable,sizeof(RGBQUAD),256,fp);<br>    }<br>    int m=lineByte</em>bmpHeight;<br>    all_M=m;<br>    pBmpBuf = new unsigned char[m];<br>    if(fread(pBmpBuf,1,m,fp)==0)<br>    {<br>    printf(“error”);<br>        return 0;<br>    }<br>    fclose(fp);<br>    return 1;<br>}<br>int save_bmp_file(char <em>name){<br>    FILE </em>new_file=fopen(name,”wt+”);//可读可写<br>    if(new_file==NULL){<br>        printf(“文件打开失败\n”);<br>        return -1;<br>    }<br>    fwrite(&amp;fileheader,sizeof(BITMAPFILEHEADER),1,new_file);<br>    fwrite(&amp;infoHead,sizeof(BITMAPINFOHEADER),1,new_file);<br>    fwrite(tempbuffer,1,all_M,new_file);<br>    if(new_file!=NULL)<br>    fclose(new_file);<br>    return 0;<br>}<br>void handle_bmp(){<br>    //彩色浮雕效果   f(i,j)-f(i-1,j)+常量，常量一般为128<br>    tempbuffer=new unsigned char[all_M];<br>    int temp;<br>    for(int j=0;j<bmpheight;j++){ for(int="" i="0;i<line_width-4;i++){" temp="0;" if(temp<0)="" if(temp="">255)<br>                temp=255;<br>            <em>(tempbuffer+(bmpHeight-j-1)</em>line_width+i+3)=temp;<br>        }<br>    }<br>}<br>int main(){<br>    char <em>filename=”D:\lena.bmp”;<br>    readbmp(filename);<br>    char </em>savefilename=”D:\lena123.bmp”;<br>    handle_bmp();<br>    save_bmp_file(savefilename);<br>    return 0;<br>}<br>(VC配置easyX亲测有效)</bmpheight;j++){></p>
 <p>#include &lt;graphics.h&gt; </p>
 <p>#include &lt;windows.h&gt;</p>
 <p>#include &lt;conio.h&gt;</p>
@@ -169,14 +127,9 @@ return 0;
 <p>#define GBP(x, y) GetBValue(getpixel(x, y)) </p>
 <p>#define WIDTH 200           //屏幕宽 </p>
 <p>#define HEIGHT 200          //屏幕高 </p>
-<p>int main(void)<br>{ </p>
-<p>void CopyLayer();    //图层复制 </p>
-<p>void CarveLR();    //雕刻：自左向右，需要复制图层</p>
-<p>initgraph(WIDTH, HEIGHT);    //初始化600×600的绘图窗口<br>setbkcolor(WHITE);    //设置背景色<br>cleardevice();    //清空屏幕 </p>
-<p>loadimage(NULL, “D:\lena.jpg”);<br>    CopyLayer();<br>    CarveLR();<br>getch();<br>closegraph(); </p>
+<p>int main(void)<br>{<br>    void CopyLayer();    //图层复制<br>    void CarveLR();    //雕刻：自左向右，需要复制图层<br>    initgraph(WIDTH, HEIGHT);    //初始化600×600的绘图窗口<br>    setbkcolor(WHITE);    //设置背景色<br>    cleardevice();    //清空屏幕<br>    loadimage(NULL, “D:\lena.jpg”);<br>        CopyLayer();<br>        CarveLR();<br>getch();<br>closegraph(); </p>
 <p>return 0;<br>} </p>
-<p>//雕刻，自左向右，本点 = 本点 - 右点 +127<br>void CarveLR()<br>{<br>int r, g, b;<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ ){<br>r = GRP(x, y) - GRP(x + 1, y) + 127;<br>g = GGP(x, y) - GGP(x + 1, y) + 127;<br>b = GBP(x, y) - GBP(x + 1, y) + 127;    //127为调整后的亮度，可调<br>putpixel(x, y, RGB(r, g, b));<br>}<br>} </p>
-<p>//图层复制<br>void CopyLayer()<br>{<br>Resize(NULL, WIDTH + WIDTH, HEIGHT);<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ ){<br>putpixel(x + WIDTH, y, getpixel(x, y));<br>    }<br>} </p>
+<p>//雕刻，自左向右，本点 = 本点 - 右点 +127<br>void CarveLR()<br>{<br>int r, g, b;<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ )<br>    {<br>       r = GRP(x, y) - GRP(x + 1, y) + 127;<br>       g = GGP(x, y) - GGP(x + 1, y) + 127;<br>       b = GBP(x, y) - GBP(x + 1, y) + 127;    //127为调整后的亮度，可调<br>       putpixel(x, y, RGB(r, g, b));<br>     }<br>}<br>//图层复制<br>void CopyLayer()<br>{<br>Resize(NULL, WIDTH + WIDTH, HEIGHT);<br>for(int x = 0; x &lt; WIDTH; x++)<br>for(int y = 0; y &lt; HEIGHT; y++ )<br>    {<br>    putpixel(x + WIDTH, y, getpixel(x, y));<br>    }<br>}</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/mkhgg/article/details/6585402" target="_blank" rel="external">图像处理小结</a><br><a href="http://blog.csdn.net/worldy/article/details/12868547" target="_blank" rel="external">图像处理</a><br><a href="http://blog.csdn.net/jsgaobiao/article/details/50913065" target="_blank" rel="external">浮雕效果和倒影效果</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>未完，待续…….</p>
   
@@ -204,6 +157,14 @@ return 0;
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/04/08/书籍管理系统/" title="数据库书籍的增删改查">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据库书籍的增删改查</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/06/11/Windows下安装Ubuntu双系统/"  title="Windows下安装Ubuntu双系统">
@@ -298,7 +259,7 @@ return 0;
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Xiaofei Mo">Xiaofei Mo</a>
 		
