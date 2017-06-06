@@ -1,0 +1,632 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JavaSE基础知识问答 | 墨小飞独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiaofei Mo">
+    
+
+    
+    <meta name="description" content="学习Java过程中免不了有很多的概念性的题，因为总是学的快，忘得快，所以在此记录下所遇到的基础问题并给予自己的理解，方便大家查看也方便自己日后复习，免得无从下手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE基础知识问答">
+<meta property="og:url" content="http://moxiaohei.github.io/2017/06/07/JavaSE基础知识总结/index.html">
+<meta property="og:site_name" content="墨小飞独立博客">
+<meta property="og:description" content="学习Java过程中免不了有很多的概念性的题，因为总是学的快，忘得快，所以在此记录下所遇到的基础问题并给予自己的理解，方便大家查看也方便自己日后复习，免得无从下手。">
+<meta property="og:updated_time" content="2017-06-06T16:09:44.736Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaSE基础知识问答">
+<meta name="twitter:description" content="学习Java过程中免不了有很多的概念性的题，因为总是学的快，忘得快，所以在此记录下所遇到的基础问题并给予自己的理解，方便大家查看也方便自己日后复习，免得无从下手。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="墨小飞独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="墨小飞独立博客" title="墨小飞独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="墨小飞独立博客">墨小飞独立博客</a></h1>
+				<h2 class="blog-motto">滴水穿石，非一日之功</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 16217304412639600000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/07/JavaSE基础知识总结/" title="JavaSE基础知识问答" itemprop="url">JavaSE基础知识问答</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiaofei Mo" target="_blank" itemprop="author">Xiaofei Mo</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-06T16:10:12.000Z" itemprop="datePublished"> 发表于 2017-06-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JDK和JRE的区别是什么？"><span class="toc-number">1.</span> <span class="toc-text">1. JDK和JRE的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Java中的方法覆盖-Overriding-和方法重载-Overloading-是什么意思？"><span class="toc-number">2.</span> <span class="toc-text">2.Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#3-接口和抽象类的区别？"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">3.接口和抽象类的区别？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-封装的定义和好处有哪些？"><span class="toc-number">3.</span> <span class="toc-text">4.封装的定义和好处有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-面向对象软件开发的优点有哪些？"><span class="toc-number">4.</span> <span class="toc-text">5.面向对象软件开发的优点有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Comparable和Comparator接口是干什么的？列出它们的区别。"><span class="toc-number">5.</span> <span class="toc-text">6.Comparable和Comparator接口是干什么的？列出它们的区别。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-ArrayList和LinkedList有什么区别？"><span class="toc-number">6.</span> <span class="toc-text">7.ArrayList和LinkedList有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-数组-Array-和列表-ArrayList-有什么区别？什么时候应该使用Array而不是ArrayList？"><span class="toc-number">7.</span> <span class="toc-text">8.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-HashMap和Hashtable有什么区别？"><span class="toc-number">8.</span> <span class="toc-text">9.HashMap和Hashtable有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Iterator和ListIterator的区别是什么？"><span class="toc-number">9.</span> <span class="toc-text">10.Iterator和ListIterator的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Java支持的数据类型有哪些？什么是自动拆装箱？"><span class="toc-number">10.</span> <span class="toc-text">11.Java支持的数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Java支持多继承么？为什么？"><span class="toc-number">11.</span> <span class="toc-text">12.Java支持多继承么？为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"><span class="toc-number">12.</span> <span class="toc-text">13.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-解释下线程的几种可用状态？"><span class="toc-number">13.</span> <span class="toc-text">14.解释下线程的几种可用状态？</span></a></li></ol>
+		
+		</div>
+		
+		<p>学习Java过程中免不了有很多的概念性的题，因为总是学的快，忘得快，所以在此记录下所遇到的基础问题并给予自己的理解，方便大家查看也方便自己日后复习，免得无从下手。<br><a id="more"></a></p>
+<h3 id="1-JDK和JRE的区别是什么？"><a href="#1-JDK和JRE的区别是什么？" class="headerlink" title="1. JDK和JRE的区别是什么？"></a>1. JDK和JRE的区别是什么？</h3><blockquote>
+<p>JDK(Java Development Kit)它是一种构建在java平台上发布的应用程序、apple和组件的开发环境。JDK是一切java应用程序的基础，所有的java应用程序是构建在这个之上，它包含了JAVA的运行环境，JAVA工具和JAVA基础的类库。</p>
+<p>JRE(Java Runtime Environment，Java运行环境)：运行JAVA程序所必须的环境的集合，包含JVM标准实现及Java核心类库。</p>
+<p>相信大家都知道jdk的bin下有各种java程序需要用到的命令，与jre的bin目录最明显的区别就是jdk下才有javac，这一点很好理解，因为 jre只是一个运行环境而已。与开发无关，正因为如此，具备开发功能的jdk自己的jre下才会同时有client性质的jvm和server性质的 jvm， 而仅仅作为运行环境的jre下只需要client性质的jvm.dll就够了。</p>
+<p><strong>简单的说</strong>：JDK是面向开发人员使用的SDK，它提供了Java的开发环境和运行环境。JRE是指Java的运行环境，是面向Java程序的使用者，而不是开发者。 </p>
+</blockquote>
+<h3 id="2-Java中的方法覆盖-Overriding-和方法重载-Overloading-是什么意思？"><a href="#2-Java中的方法覆盖-Overriding-和方法重载-Overloading-是什么意思？" class="headerlink" title="2.Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？"></a>2.Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？</h3><blockquote>
+<ul>
+<li><p>方法覆盖(Overriding)</p>
+</li>
+<li><p>父类与子类之间的多态性，对父类的函数进行重新定义。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被覆盖(Overriding)。在Java中，子类可继承父类中的方法，而不需要重新编写相同的方法。但有时子类并不想原封不动地继承父类的方法，而是想作一定的修改，这就需要采用方法的重写。方法覆盖又称方法重写。</p>
+</li>
+<li><p>若子类中的方法与父类中的某一方法具有相同的方法名、返回类型和参数表，则新方法将覆盖原有的方法。如需父类中原有的方法，可使用super关键字，该关键字引用了当前类的父类。</p>
+</li>
+<li><p>在Java规定，子类方法的访问权限不能比父类中被重写的方法的访问权限更小，必须大于或等于父类的访问权限。</p>
+</li>
+</ul>
+<p><strong>简单点说</strong>：方法重写就是子类的方法和父类中继承下来的方法具有完全相同的方法名、返回值类型、方法的参数个数以及参数类型，这样才能被称为方法重写。</p>
+<ul>
+<li>方法重载(Overloading)</li>
+</ul>
+<ol>
+<li><p>方法重载是让类以统一的方式处理不同类型数据的一种手段。多个同名函数同时存在，具有不同的参数个数/类型。重载是一个类中多态性的一种表现。</p>
+</li>
+<li><p>Java的方法重载，就是在类中可以创建多个方法，它们具有相同的名字，但具有不同的参数和不同的定义。调用方法时通过传递给它们的不同参数个数和参数类型来决定具体使用哪个方法, 这就是多态性。</p>
+</li>
+<li><p>重载的时候，方法名要一样，但是参数类型和个数不一样，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准。</p>
+</li>
+</ol>
+<p><strong>简单点说</strong>：方法重载就是：在一个类中，有一系列的方法具有方法名相同，但参数列表不同，这类方法的实现就是方法重载。注意构造方法也可以重载。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">区别点</th>
+<th style="text-align:center">重载</th>
+<th style="text-align:center">重写（覆盖）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">英文</td>
+<td style="text-align:center">Overloading</td>
+<td style="text-align:center">Overiding</td>
+</tr>
+<tr>
+<td style="text-align:left">定义</td>
+<td style="text-align:center">方法名称相同，参数的类型或个数不同</td>
+<td style="text-align:center">方法名称、参数类型、返回值类型全部相同</td>
+</tr>
+<tr>
+<td style="text-align:left">范围</td>
+<td style="text-align:center">发生在一个类中</td>
+<td style="text-align:center">发生在继承类中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：构造方法不能被继承，因此不能被重写，在子类中只能通过super关键字调用父类的构造方法；但是可以被重载。</p>
+</blockquote>
+<h6 id="3-接口和抽象类的区别？"><a href="#3-接口和抽象类的区别？" class="headerlink" title="3.接口和抽象类的区别？"></a>3.接口和抽象类的区别？</h6><blockquote>
+<p><strong>抽象类</strong>： 含有abstract修饰符的class即为抽象类，abstract类不能创建实例对象，含有abstract的方法的类必须定义为abstract class，abstract class里的方法不必是抽象的，抽象类中定义抽象方法必须放在具体子类中实现；所以，不能有抽象的构造方法或抽象的静态方法，如果子类没有实现抽象父类中的所有方法，那么，子类也必须定义为抽象类。</p>
+<p><strong>接口</strong>：接口（interface）可以说成是抽象类的特例。接口中的所有方法都必须是抽象的，接口中的方法定义默认为public  abstract 。接口中的变量是全局常量，即public static final修饰的。</p>
+<p><strong>抽象类和接口的对比：</strong></p>
+<ol>
+<li><p>抽象类和接口都不能直接实例化，如果要实例化，抽象类变量必须指向实现所有抽象方法的子类对象，接口变量必须指向实现所有接口方法的类对象。</p>
+</li>
+<li><p>抽象类要被子类继承，接口要被类实现。</p>
+</li>
+<li><p>接口只能做方法申明，抽象类中可以做方法申明，也可以做方法实现。</p>
+</li>
+<li><p>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</p>
+</li>
+<li><p>抽象类里的抽象方法必须全部被子类所实现，如果子类不能全部实现父类抽象方法，那么该子类只能是抽象类。同样，一个实现接口的时候，如不能全部实现接口方法，那么该类也只能为抽象类。</p>
+</li>
+<li><p>抽象方法只能申明，不能实现。abstract void method();不能写成abstract void method(){}。</p>
+</li>
+<li><p>抽象类里可以没有抽象方法。</p>
+</li>
+<li><p>如果一个类里有抽象方法，那么这个类只能是抽象类。</p>
+</li>
+<li><p>抽象方法要被实现，所以不能是静态的，也不能是私有的。</p>
+</li>
+<li><p>接口可继承接口，并可多继承接口，但类只能单继承。</p>
+</li>
+</ol>
+<p><strong>抽象类和接口的使用时机</strong>：</p>
+<ol>
+<li><p>抽象类里面可以有非抽象方法但接口里只能有抽象方法声明方法的存在而不去实现它的类被叫做抽象类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。</p>
+</li>
+<li><p>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
+</li>
+<li><p>当描述一组方法的时候使用接口  当描述一个虚拟的物体的时候使用抽象类</p>
+</li>
+</ol>
+<p><strong>注意：</strong>对于接口和抽象类的选择有两个很重要的概念：<strong>对象的行为和对象的实现</strong>。选择上需要遵守的原则：<em>行为模型应该总是通过接口而不是抽象类定义。</em><br>具体可参考以下链接：<br><a href="http://www.cnblogs.com/554006164/articles/2530844.html" target="_blank" rel="external">什么时候用抽象？什么时候用接口？</a></p>
+<h3 id="4-封装的定义和好处有哪些？"><a href="#4-封装的定义和好处有哪些？" class="headerlink" title="4.封装的定义和好处有哪些？"></a>4.封装的定义和好处有哪些？</h3><p><strong>封装的定义：</strong><br>可以把程序按某种规则分成很多“块“，块与块之间可能会有联系，每个块都有一个可变部分和一个稳定的部分。我们需要把可变的部分和稳定的部分分离出来，将稳定的部分暴露给其他块，而将可变的部分隐藏起来，以便于随时可以让它修改。这项工作就是封装.</p>
+<p><strong>下面列出使用封装的好处：</strong></p>
+<ol>
+<li>通过隐藏对象的属性来保护对象内部的状态。</li>
+<li>高内聚，低耦合一直是我们所追求的，用好封装恰恰可以减少耦合。</li>
+<li>只要对外接口不改变，可以任意修改内部实现，这个可以很好的应对变化。</li>
+<li>类具有了简洁清晰的对外接口，降低了使用者的学习过程。</li>
+</ol>
+</blockquote>
+<h3 id="5-面向对象软件开发的优点有哪些？"><a href="#5-面向对象软件开发的优点有哪些？" class="headerlink" title="5.面向对象软件开发的优点有哪些？"></a>5.面向对象软件开发的优点有哪些？</h3><blockquote>
+<ol>
+<li>代码开发模块化，更易维护和修改。</li>
+<li>代码复用。</li>
+<li>增强代码的可靠性和灵活性。</li>
+<li>增加代码的可理解性。</li>
+</ol>
+</blockquote>
+<h3 id="6-Comparable和Comparator接口是干什么的？列出它们的区别。"><a href="#6-Comparable和Comparator接口是干什么的？列出它们的区别。" class="headerlink" title="6.Comparable和Comparator接口是干什么的？列出它们的区别。"></a>6.Comparable和Comparator接口是干什么的？列出它们的区别。</h3><blockquote>
+<ol>
+<li><p>Java提供了只包含一个compareTo()方法的Comparable接口。这个方法可以个给两个对象排序。具体来说，它返回负数，0，正数来表明输入对象小于，等于，大于已经存在的对象。</p>
+</li>
+<li><p>Java提供了包含compare()和equals()两个方法的Comparator接口。compare()方法用来给两个输入参数排序，返回负数，0，正数表明第一个参数是小于，等于，大于第二个参数。equals()方法需要一个对象作为参数，它用来决定输入参数是否和comparator相等。只有当输入参数也是一个comparator并且输入参数和当前comparator的排序结果是相同的时候，这个方法才返回true。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="7-ArrayList和LinkedList有什么区别？"><a href="#7-ArrayList和LinkedList有什么区别？" class="headerlink" title="7.ArrayList和LinkedList有什么区别？"></a>7.ArrayList和LinkedList有什么区别？</h3><blockquote>
+<p>ArrayList和LinkedList都实现了List接口，并且是用来对自定义的class比较大小的。</p>
+<p><strong>区别如下</strong>：</p>
+<ol>
+<li><p>ArrayList是基于索引的数据接口，它的底层是数组。它可以以O(1)时间复杂度对元素进行随机访问。与此对应，LinkedList是以元素列表的形式存储它的数据，每一个元素都和它的前一个和后一个元素链接在一起，在这种情况下，查找某个元素的时间复杂度是O(n)。</p>
+</li>
+<li><p>相对于ArrayList，LinkedList的插入，添加，删除操作速度更快，因为当元素被添加到集合任意位置的时候，不需要像数组那样重新计算大小或者是更新索引。LinkedList比ArrayList更占内存，因为LinkedList为每一个节点存储了两个引用，一个指向前一个元素，一个指向下一个元素。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="8-数组-Array-和列表-ArrayList-有什么区别？什么时候应该使用Array而不是ArrayList？"><a href="#8-数组-Array-和列表-ArrayList-有什么区别？什么时候应该使用Array而不是ArrayList？" class="headerlink" title="8.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？"></a>8.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？</h3><p>&gt;</p>
+<blockquote>
+<p><strong>区别如下</strong>：</p>
+<ol>
+<li>Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。</li>
+<li>Array大小是固定的，ArrayList的大小是动态变化的。</li>
+<li>ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。</li>
+</ol>
+<p><strong>使用场景</strong>：</p>
+<p>  如果想要保存一些在整个程序运行过程期间都会存在而且不变的数据，我们可以将它们fangjin一个全局数组里，但是如果我们单纯只是想要以数组的形式保存数据，而不对数据机型增加等操作，只是方便我们查找的话，那么，我们就选择ArrayList。</p>
+</blockquote>
+<h3 id="9-HashMap和Hashtable有什么区别？"><a href="#9-HashMap和Hashtable有什么区别？" class="headerlink" title="9.HashMap和Hashtable有什么区别？"></a>9.HashMap和Hashtable有什么区别？</h3><blockquote>
+<p>HashMap和Hashtable都实现了Map接口，因此很多特性非常相似。但是，他们有以下不同点：</p>
+<ol>
+<li>HashMap允许键和值是null，而Hashtable不允许键或者值是null。</li>
+<li>Hashtable是同步的，而HashMap不是。因此，HashMap更适合于单线程环境，而Hashtable适合于多线程环境。</li>
+<li>HashMap提供了可供应用迭代的键的集合，因此，HashMap是快速失败的。另一方面，Hashtable提供了对键的列举(Enumeration)。</li>
+</ol>
+</blockquote>
+<h3 id="10-Iterator和ListIterator的区别是什么？"><a href="#10-Iterator和ListIterator的区别是什么？" class="headerlink" title="10.Iterator和ListIterator的区别是什么？"></a>10.Iterator和ListIterator的区别是什么？</h3><blockquote>
+<p><strong>区别点</strong>：</p>
+<ol>
+<li>Iterator可用来遍历Set和List集合，但是ListIterator只能用来遍历List。</li>
+<li>Iterator对集合只能是前向遍历，ListIterator既可以前向也可以后向。</li>
+<li>ListIterator实现了Iterator接口，并包含其他的功能，比如：增加元素，替换元素，获取前一个和后一个元素的索引，等等。</li>
+</ol>
+</blockquote>
+<h3 id="11-Java支持的数据类型有哪些？什么是自动拆装箱？"><a href="#11-Java支持的数据类型有哪些？什么是自动拆装箱？" class="headerlink" title="11.Java支持的数据类型有哪些？什么是自动拆装箱？"></a>11.Java支持的数据类型有哪些？什么是自动拆装箱？</h3><blockquote>
+<ol>
+<li>Java语言支持的8种基本数据类型是：byte，short，int，long，float，double，Boolean，char。</li>
+<li>自动装箱是Java编译器在基本数据类型和对应的对象包装类型之间做的一个转化。比如：把int转化成Integer，double转化成Double，等等。反之就是自动拆箱。</li>
+</ol>
+</blockquote>
+<h3 id="12-Java支持多继承么？为什么？"><a href="#12-Java支持多继承么？为什么？" class="headerlink" title="12.Java支持多继承么？为什么？"></a>12.Java支持多继承么？为什么？</h3><blockquote>
+<p>Java中类不支持多继承，只支持单继承（即一个类只有一个父类）。 但是java中的接口支持多继承，，即一个子接口可以有多个父接口。（接口的作用是用来扩展对象的功能，一个子接口继承多个父接口，说明子接口扩展了多个功能，当类实现接口时，类就扩展了相应的功能）。</p>
+</blockquote>
+<h3 id="13-什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"><a href="#13-什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？" class="headerlink" title="13.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"></a>13.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</h3><blockquote>
+<p><strong>java虚拟机</strong>：</p>
+<ol>
+<li>Java虚拟机是一个可以执行Java字节码的虚拟机进程。Java源文件被编译成能被Java虚拟机执行的字节码文件。</li>
+<li>Java被设计成允许应用程序可以运行在任意的平台，而不需要程序员为每一个平台单独重写或者是重新编译。Java虚拟机让这个变为可能，因为它知道底层硬件平台的指令长度和其他特性。</li>
+</ol>
+<p><strong>平台无关的编程语言原因：</strong></p>
+<ol>
+<li>java的跨平台不是java源程序的跨平台 ，如果是这样，那么所以语言都是跨平台的， java源程序先经过javac编译器编译成二进制的.class字节码文件（java的跨平台指的就是.class字节码文件的跨平台，.class字节码文件是与平台无关的），.class文件再运行在jvm上，java解释器（jvm的一部分）会将其解释成对应平台的机器码执行，所以java所谓的跨平台就是在不同平台上安装了不同的jvm，而在不同平台上生成的.class文件都是一样的，而.class文件再由对应平台的jvm解释成对应平台的机器码执行。</li>
+</ol>
+</blockquote>
+<h3 id="14-解释下线程的几种可用状态？"><a href="#14-解释下线程的几种可用状态？" class="headerlink" title="14.解释下线程的几种可用状态？"></a>14.解释下线程的几种可用状态？</h3><blockquote>
+<ol>
+<li>新建( new )：新创建了一个线程对象。</li>
+<li>可运行( runnable )：线程对象创建后，其他线程(比如 main 线程）调用了该对象 的 start ()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获 取 cpu 的使用权 。</li>
+<li>运行( running )：可运行状态(runnable)的线程获得了cpu时间片（timeslice），执行程序代码。</li>
+<li>阻塞( block )：阻塞状态是指线程因为某种原因放弃了cpu使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行( running )状态。阻塞的情况分三种：<br>(1). 等待阻塞：运行(running)的线程执行o.wait()方法,JVM会把该线程放入等待队列(waitting queue)中。<br>(2). 同步阻塞：运行( running )的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。<br>(3). 其他阻塞:运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行( runnable )状态。</li>
+<li>死亡( dead )：线程 run ()、 main () 方法执行结束，或者因异常退出了 run ()方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
+</ol>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://moxiaohei.github.io/2017/06/07/JavaSE基础知识总结/" data-title="JavaSE基础知识问答 | 墨小飞独立博客" data-tsina="1178485171" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/08/书籍管理系统/"  title="数据库书籍的增删改查">
+ <strong>下一篇：</strong><br/> 
+ <span>数据库书籍的增删改查
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/06/07/JavaSE基础知识总结/" data-title="JavaSE基础知识问答" data-url="http://moxiaohei.github.io/2017/06/07/JavaSE基础知识总结/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JDK和JRE的区别是什么？"><span class="toc-number">1.</span> <span class="toc-text">1. JDK和JRE的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Java中的方法覆盖-Overriding-和方法重载-Overloading-是什么意思？"><span class="toc-number">2.</span> <span class="toc-text">2.Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#3-接口和抽象类的区别？"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">3.接口和抽象类的区别？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-封装的定义和好处有哪些？"><span class="toc-number">3.</span> <span class="toc-text">4.封装的定义和好处有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-面向对象软件开发的优点有哪些？"><span class="toc-number">4.</span> <span class="toc-text">5.面向对象软件开发的优点有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Comparable和Comparator接口是干什么的？列出它们的区别。"><span class="toc-number">5.</span> <span class="toc-text">6.Comparable和Comparator接口是干什么的？列出它们的区别。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-ArrayList和LinkedList有什么区别？"><span class="toc-number">6.</span> <span class="toc-text">7.ArrayList和LinkedList有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-数组-Array-和列表-ArrayList-有什么区别？什么时候应该使用Array而不是ArrayList？"><span class="toc-number">7.</span> <span class="toc-text">8.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-HashMap和Hashtable有什么区别？"><span class="toc-number">8.</span> <span class="toc-text">9.HashMap和Hashtable有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Iterator和ListIterator的区别是什么？"><span class="toc-number">9.</span> <span class="toc-text">10.Iterator和ListIterator的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Java支持的数据类型有哪些？什么是自动拆装箱？"><span class="toc-number">10.</span> <span class="toc-text">11.Java支持的数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Java支持多继承么？为什么？"><span class="toc-number">11.</span> <span class="toc-text">12.Java支持多继承么？为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"><span class="toc-number">12.</span> <span class="toc-text">13.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-解释下线程的几种可用状态？"><span class="toc-number">13.</span> <span class="toc-text">14.解释下线程的几种可用状态？</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://farenoughstone.github.io/" target="_blank" title="足够远的石头">足够远的石头</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1178485171&verifier=039d33aa&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I am moxiaofei! <br/>
+			Live forever,Learn forever.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1178485171" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/moxiaohei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/墨小飞00" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:1178485171@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiaofei Mo">Xiaofei Mo</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+	m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"moxiaofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
